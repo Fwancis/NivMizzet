@@ -17,6 +17,6 @@ afficheMot("cOuCoU");
 afficheMot("Je suis Un AnaNas");
 afficheMot("LeMaThELiN");
 
-module.exports = {
+module.export = {
   afficheMot: afficheMot
 }

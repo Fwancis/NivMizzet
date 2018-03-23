@@ -5,6 +5,7 @@ const util = require('./mes_modules/utilitaire.js')
 const roulette = require('./mes_modules/Roulette/roulette.js')
 const prout = require('./mes_modules/prout.js')
 const tabs = require('./mes_modules/tableaux.js')
+const pendu = require('./mes_modules/Pendu/main.js')
 
 var channels = bot.channels;
 
@@ -66,7 +67,9 @@ bot.on('message', function(message){
     sendHelp(message.author);
   }/*else if(message.content === "$spam"){
     message.channel.send("$spam")
-  }*/else if(message.content.startsWith("$")){
+  }*/else if(message.content === "$penduTest"){
+    pendu.start();
+  }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
 })

@@ -3,6 +3,8 @@ var base = [
   ""
 ]
 
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 var messagesAccueil = [
   ["Oh mon dieu !!! <@", "> vient d'arriver !"],
   ["Salut <@", ">, tu veux un cookie ? :cookie:"],
@@ -149,5 +151,6 @@ module.exports = {
   hugs: hugs,
   chatons: chatons,
   chiots: chiots,
-  messagesAccueil: messagesAccueil
+  messagesAccueil: messagesAccueil,
+  alphabet: alphabet
 }
