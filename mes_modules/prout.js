@@ -4,7 +4,7 @@ var doProut = function(message){
   var args = message.content.split(' ');
   var notifs = util.getArgsNotifs(args);
   if (notifs.length == 1){
-    message.channel.send("Tu pues " + notifs[0] + " ! \nSigné : "message.author);
+    message.channel.send("Tu pues " + notifs[0] + " ! \nSigné : " + message.author);
   }else if (notifs.length >1){
     var reponse = getMultiProut(notifs);
     message.channel.send(reponse);
@@ -18,7 +18,7 @@ var getMultiProut = function(notifies){
   for (var i = 1; i < notifies.length-1; i++) {
     message += ", " + notifies[i];
   }
-  message += " et " + notifies[notifies.length-1] + " ! \nSigné : "message.author";
+  message += " et " + notifies[notifies.length-1] + " ! \nSigné : " + message.author";
   return message;
 }
 
