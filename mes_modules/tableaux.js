@@ -22,12 +22,13 @@ var messagesAccueil = [
   ["Ah mais qui voilà ? Inspecteur <@", "> !! Ça va être la joie, WOUHOU !!"],
   ["<@", ">, vous n'êtes pas juste un simple servant, vous êtes aussi le sosie d'un bulldog en dépressurisation, et c'est un compliment."],
   ["J'me présente, je m'appelle <@", ">. J'voudrais bien, réussir ma vie."],
-  ["Hotel Gudural, 7 étoiles de la place Elister Donovan, du groupe Franky Motel fondé en 2001 à partir de deux (dominos), budget Slip Tranquille (rattaché) Suisse France et Belgique, formule petit déjeuner : \"pain, céréales, sucrés, salés, moutarde et miel\", menu Riviera Transatlantique à partir de 11€, satellite et câble contact fixe et large choix d’infusion tisane et café, numéro de SIRET 790778815-015, SARL au capital de 150 000 boules, passoires en marbre et les baldaquins à matelas à mémoire de forme, accès limite à la WiFi, gouttières en zinc et tuiles en terre glaise, oreiller pur laine avec intérieur coton, moquette « Aux 4 Murailles » ignifugée garanti sans paraben colorant ni conservateur, bâtiment sous vidéo-surveillance H24, partenaire aux Jeux Olympiques d’Hiver de Vancouver au Canada en 2009, premier prix de la Literie du Salon du Sommeil en 1995, lauréat du concours de la meilleure Piaule sans vis-à-vis exposée plein sud avec double rideaux dont deux sont en daim, établissement quasi homologué, centre de thalassothérapie, remise en forme soin corps et visage formule antipelliculaire, abdos SQUAT et tractions, ensuite sélecte ta connexion, quand elle danse elle me fait perdre la raison boom boom she boom total reggae salsa calipso, la maintenance du distributeur de canettes est assurée  par une société du GERS et non-agréée et par la SRCT, c’est comme la mangouste l’animal mais sans le U le I le A le E, la maison n’accepte ni chèque ni troc ni peau ni fourrure mais espèces et carte bleue, nos bâtiments sont tous désamiantés, les rats sont nourris, les draps sont lavés, notre équipe est soudée et l’herbe coupée récemment ramassée que puis-je pour <@", "> ?"],
+  ["Hotel Gudural, 7 étoiles de la place Elister Donovan, du groupe Franky Motel fondé en 2001, budget Slip Tranquille rattaché Suisse, France et Belgique. Formule petit déjeuner : \"pain, céréales, sucrés, salés, moutarde et miel\", menu Riviera Transatlantique à partir de 11€, satellite et câble contact fixe et large choix d’infusion tisane et café, numéro de SIRET 790778815-015, SARL au capital de 150 000 boules, passoires en marbre et les baldaquins à matelas à mémoire de forme, accès limite à la WiFi, gouttières en zinc et tuiles en terre glaise, oreiller pur laine avec intérieur coton, moquette « Aux 4 Murailles » ignifugée garanti sans paraben colorant ni conservateur, bâtiment sous vidéo-surveillance H24, partenaire aux Jeux Olympiques d’Hiver de Vancouver au Canada en 2009, premier prix de la Literie du Salon du Sommeil en 1995, lauréat du concours de la meilleure Piaule sans vis-à-vis exposée plein sud avec double rideaux dont deux sont en daim, établissement quasi homologué, centre de thalassothérapie, remise en forme soin corps et visage formule antipelliculaire, abdos SQUAT et tractions, ensuite sélecte ta connexion, quand elle danse elle me fait perdre la raison boom boom she boom total reggae salsa calipso, la maintenance du distributeur de canettes est assurée  par une société du GERS et non-agréée et par la SRCT, c’est comme la mangouste l’animal mais sans le U le I le A le E, la maison n’accepte ni chèque ni troc ni peau ni fourrure mais espèces et carte bleue, nos bâtiments sont tous désamiantés, les rats sont nourris, les draps sont lavés, notre équipe est soudée et l’herbe coupée récemment ramassée que puis-je pour <@", "> ?"],
   ["$hug <@", ">"]
 ]
 
 var hugs = [
   "https://giphy.com/gifs/love-disney-girl-EvYHHSntaIl5m",
+  "https://giphy.com/gifs/love-hug-monkey-42YlR8u9gV5Cw",
   "https://giphy.com/gifs/hug-cat-cute-f6y4qvdxwEDx6",
   "https://giphy.com/gifs/kawaii-hug-sending-a-l4FGpP4lxGGgK5CBW",
   "https://giphy.com/gifs/hug-sixt-calin-iBezUAUnAuiu4",
@@ -56,7 +57,11 @@ var hugs = [
   "https://giphy.com/gifs/black-and-white-cute-YD16te5amnpRu",
   "https://giphy.com/gifs/kiss-animal-ZhXaeQIkcKcFi",
   "https://giphy.com/gifs/panda-sleeping-NDIT8BbVifFeM",
-  "https://giphy.com/gifs/panda-hugging-IQkpMxsNXVYfC"
+  "https://giphy.com/gifs/panda-hugging-IQkpMxsNXVYfC",
+  "https://giphy.com/gifs/hug-love-winnie-the-pooh-llmZp6fCVb4ju",
+  "https://giphy.com/gifs/love-hug-monkey-42YlR8u9gV5Cw",
+  "https://giphy.com/gifs/love-cute-hug-xT39CXg70nNS0MFNLy",
+  "https://giphy.com/gifs/love-sexy-hug-yG79QhdxXMtEc"
 ]
 
 var chatons = [
@@ -124,7 +129,6 @@ var chiots = [
   "https://www.tenor.co/EqMU.gif",
   "https://www.tenor.co/o63Z.gif"
 ]
-
 
 module.exports = {
   hugs: hugs,
