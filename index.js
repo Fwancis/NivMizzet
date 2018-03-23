@@ -64,7 +64,9 @@ bot.on('message', function(message){
     roulette.getRecord(message);
   }else if(message.content === "$help"){
     sendHelp(message.author);
-  }else if(message.content.startsWith("$")){
+  }/*else if(message.content === "$spam"){
+    message.channel.send("$spam")
+  }*/else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
 })
