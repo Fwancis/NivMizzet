@@ -89,7 +89,8 @@ var chatons = [
   "https://www.tenor.co/o63S.gif",
   "https://www.tenor.co/sPu9.gif",
   "https://www.tenor.co/NcBq.gif",
-  "https://www.tenor.co/OXNr.gif"
+  "https://www.tenor.co/OXNr.gif",
+  "https://www.tenor.co/MQNg.gif"
 ]
 
 var chiots = [
