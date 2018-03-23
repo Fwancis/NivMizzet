@@ -18,7 +18,7 @@ var getMultiProut = function(notifies){
   for (var i = 1; i < notifies.length-1; i++) {
     message += ", " + notifies[i];
   }
-  message += " et " + notifies[notifies.length-1] + " ! \nSigné : " + message.author";
+  message += " et " + notifies[notifies.length-1] + " ! \nSigné : " + message.author;
   return message;
 }
 
