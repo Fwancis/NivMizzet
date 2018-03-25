@@ -8,7 +8,7 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var messagesAccueil = [
   ["Oh mon dieu !!! <@", "> vient d'arriver !"],
   ["Salut <@", ">, tu veux un cookie ? :cookie:"],
-  ["<@", ">, j'espère que yu aimes les paras. :)"],
+  ["<@", ">, j'espère que tu aimes les paras. :smiley:"],
   ["Désolé <@", ">, je viens de manger le dernier cookie. :grin:"],
   ["Je pense que <@", "> va tous nous sauver."],
   ["Bonjour <@", ">, es-tu un ananas ?"],
