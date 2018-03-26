@@ -9,7 +9,7 @@ var doProut = function(message){
     var reponse = getMultiProut(notifs, message.author);
     message.channel.send(reponse);
   }else{
-    message.reply(", tu pues ! ");
+    message.reply("tu pues ! ");
   }
 }
 

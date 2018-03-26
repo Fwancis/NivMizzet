@@ -1,22 +1,31 @@
-var afficheMot = function(mot){
+const tableaux = require('../tableaux.js');
+
+var getMot = function(mot){
   var motlc = mot.toLowerCase();
   var i = 0;
   var res = "";
   while (i < motlc.length) {
-    res += ":regional_indicator_" + motlc[i] + ": ";
+    if (tableaux.alphabet.includes(motlc[i])){
+      res += ":regional_indicator_" + motlc[i] + ":";
+    }else{
+      res += " \\_ ";
+    }
     i++;
   }
-  console.log(res);
+  return res;
 }
 
 
+/*
+console.log(getMot("Coucou"));
+console.log(getMot("coucou"));
+console.log(getMot("cOuCoU"));
+*/
+console.log(getMot("Je suis Un   AnaNas "));
+/*
+console.log(getMot("LeMaThELiN"));
+*/
 
-afficheMot("Coucou");
-afficheMot("coucou");
-afficheMot("cOuCoU");
-afficheMot("Je suis Un AnaNas");
-afficheMot("LeMaThELiN");
-
-module.export = {
-  afficheMot: afficheMot
+module.exports = {
+  getMot: getMot
 }

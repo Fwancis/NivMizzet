@@ -68,7 +68,7 @@ bot.on('message', function(message){
   }/*else if(message.content === "$spam"){
     message.channel.send("$spam")
   }*/else if(message.content === "$penduTest"){
-    pendu.start();
+    pendu.start(message);
   }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
