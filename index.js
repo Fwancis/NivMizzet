@@ -65,8 +65,8 @@ bot.on('message', function(message){
     roulette.getRecord(message);
   }else if(message.content === "$help"){
     sendHelp(message.author);
-  }/*else if(message.content === "$spam"){
-    message.channel.send("$spam")
+  }/*else if(message.content.startsWith("$spam")){
+    message.channel.send(message)
   }*/else if(message.content === "$penduTest"){
     pendu.start(message);
   }else if(message.content.startsWith("$")){
