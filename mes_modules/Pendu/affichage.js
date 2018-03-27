@@ -15,17 +15,6 @@ var getMot = function(mot){
   return res;
 }
 
-
-/*
-console.log(getMot("Coucou"));
-console.log(getMot("coucou"));
-console.log(getMot("cOuCoU"));
-*/
-console.log(getMot("Je suis Un   AnaNas "));
-/*
-console.log(getMot("LeMaThELiN"));
-*/
-
 module.exports = {
   getMot: getMot
 }

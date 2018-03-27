@@ -9,9 +9,12 @@ var getArgsNotifs = function(args){
 }
 
 var valeurAleatoireDuTableau = function(tableau){
-  var rand = Math.random();
-  var index = Math.floor(rand * (tableau.length));
+  var index = entierAléatoireEntre(0, tableau.length);
   return tableau[index];
+}
+
+var entierAléatoireEntre = function (x, y){
+  return Math.floor(Math.random()*(y-x)+x);
 }
 
 var getTextChannels = function(guild){
@@ -39,5 +42,6 @@ module.exports = {
   getArgsNotifs: getArgsNotifs,
   getTextChannels: getTextChannels,
   getTextChannelByName: getTextChannelByName,
-  valeurAleatoireDuTableau: valeurAleatoireDuTableau
+  valeurAleatoireDuTableau: valeurAleatoireDuTableau,
+  entierAléatoireEntre: entierAléatoireEntre
 }

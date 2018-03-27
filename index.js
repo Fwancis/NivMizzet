@@ -17,7 +17,11 @@ var commandes = [
   "$pong",
   "$hug",
   "$roulette",
-  "$record"
+  "$record",
+  "$penduTest",
+  "$lettre",
+  "$mot",
+  "$stopPendu"
 ]
 
 var sendHelp = function(destinataire){
@@ -67,8 +71,10 @@ bot.on('message', function(message){
     sendHelp(message.author);
   }/*else if(message.content.startsWith("$spam")){
     message.channel.send(message)
-  }*/else if(message.content === "$penduTest"){
+  }*/else if(message.content.startsWith(commandes[8])){
     pendu.start(message);
+  }else if(message.content.startsWith(commandes[11])){
+    pendu.endGame(message);
   }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
