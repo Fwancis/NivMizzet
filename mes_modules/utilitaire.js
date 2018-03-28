@@ -38,10 +38,20 @@ var getTextChannelByName = function(textChannels, channelName){
   return textChannel
 }
 
+var tableauContient = function(tableau, valeur){
+  return tableau.includes(valeur);
+}
+
+var getIndexOfArrayElement = function(array, element){
+  return array.map().indexOf(element);
+}
+
 module.exports = {
   getArgsNotifs: getArgsNotifs,
   getTextChannels: getTextChannels,
   getTextChannelByName: getTextChannelByName,
   valeurAleatoireDuTableau: valeurAleatoireDuTableau,
-  entierAléatoireEntre: entierAléatoireEntre
+  entierAléatoireEntre: entierAléatoireEntre,
+  tableauContient: tableauContient,
+  getIndexOfArrayElement: getIndexOfArrayElement
 }

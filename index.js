@@ -18,7 +18,7 @@ var commandes = [
   "$hug",
   "$roulette",
   "$record",
-  "$penduTest",
+  "$pendu",
   "$lettre",
   "$mot",
   "$stopPendu"
@@ -36,7 +36,14 @@ var sendHelp = function(destinataire){
         + commandes[5] + " {mention} => permet de faire un câlin à {mention} \n"
         + commandes[6] + " => permet de jouer à la roulette russe\n"
         + commandes[7] + " => permet de connaitre son score à la roulette russe\n"
-        + commandes[7] + " {mention} => permet de connaitre le score de {mention} à la roulette russe \n"
+        + commandes[7] + " {mention} => permet de connaitre le score de {mention} à la roulette russe\n"
+        + commandes[8] + " => permet de lancer une partie de pendu\n"
+        + commandes[8] + " {nombre} => permet de lancer une partie de pendu à {nombre} lettres dans le mot. \
+Si {nombre} n'est pas un nombre, ou si il est inférieur ou supérieur au nombre de lettres des mots \
+dans la base de données, il sera pris au hasard.\n"
+        + commandes[9] + " => permet de tester une lettre au pendu\n"
+        + commandes[10] + " => permet de tester un mot au pendu\n"
+        + commandes[11] + " => permet d'arreter la partie de pendu en cours\n"
         + commandes[0] + " => permet de te dire que tu pues \n"
         + commandes[0] + " {mention} => permet de dire à {mention} qu'elle pue \n"
         + commandes[0] + " {mentions} => permet de dire à chaque {mention} de {mentions} qu'elles puent \n"
@@ -73,6 +80,10 @@ bot.on('message', function(message){
     message.channel.send(message)
   }*/else if(message.content.startsWith(commandes[8])){
     pendu.start(message);
+  }else if(message.content.startsWith(commandes[9])){
+    pendu.testeLettre(message);
+  }else if(message.content.startsWith(commandes[10])){
+    pendu.testeMot(message);
   }else if(message.content.startsWith(commandes[11])){
     pendu.endGame(message);
   }else if(message.content.startsWith("$")){
