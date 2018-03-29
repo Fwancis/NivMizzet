@@ -16,7 +16,7 @@ var start = function(message){
 		afficheActuel(message);
 	}else{
 		initGame(message);
-		message.channel.send("Le mot à trouver a été défini. Il contient " + nbLettres + " lettres.")
+		message.channel.send("Le mot à trouver a été défini. Il contient " + motATrouver.length + " lettres.")
 		afficheActuel(message);
 	}
 	message.channel.send("Pour jouer au pendu, utilisez **$lettre {lettre}** pour tester une lettre et **$mot {mot}** pour tester un mot. ");

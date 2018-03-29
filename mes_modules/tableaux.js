@@ -42,7 +42,12 @@ var listeDeMots = [
     "bons", "bord", "boss", "bots", "bouc", "boue", "bout", "boxe", "bras", "brie",
     "bris", "brin", "brio", "brun", "buee", "buse", "bute",
     "caca", "cadi", "cafe", "cage", "caid", "came", "camp", "cane", "cape", "case",
-    "ceci", "ceda"
+    "ceci", "cela", "cene", "cent", "cepe", "cerf", "ceux", "char", "chat", "chef",
+    "cher", "chez", "chic", "choc", "chou", "chut", "ciel", "cils", "cine", "cinq",
+    "cire", "clan", "clef", "cles", "clic", "clip", "clos", "clou", "club", "coco",
+    "cocu", "code", "coin", "coit", "cols", "colt", "coma", "cone", "cons", "coqs",
+    "cors", "cote", "coup", "cour", "cout", "cran", "cric", "crin", "cube", "cuir",
+    "culs", "cure", "cuve", "cyan"
   ],
   [
     "",
