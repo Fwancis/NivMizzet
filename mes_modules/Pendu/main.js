@@ -8,7 +8,7 @@ var nbLettres;
 var lettresDemandees = [];
 
 const nbLettresMin = 3;
-const nbLettresMax = 3;
+const nbLettresMax = 4;
 
 var start = function(message){
 	if (jeuACommence()){
@@ -70,7 +70,7 @@ var endGame = function(message){
 		message.channel.send("La partie n'a pas encore commencé.")
 		return 0;
 	}
-	message.channel.send("La partie de pendu est terminée, le mot était \"" + motATrouver + "\", merci d'avoir joué :cookie:");
+	message.channel.send("La partie de pendu est terminée, le mot était " + affichage.getMot(motATrouver) + ", merci d'avoir joué :cookie:");
 	motATrouver = undefined;
 	actuellementTrouve = undefined;
 	nbLettres = undefined;
