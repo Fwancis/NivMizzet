@@ -295,7 +295,9 @@ var hugs = [
   "https://giphy.com/gifs/hug-love-winnie-the-pooh-llmZp6fCVb4ju",
   "https://giphy.com/gifs/love-hug-monkey-42YlR8u9gV5Cw",
   "https://giphy.com/gifs/love-cute-hug-xT39CXg70nNS0MFNLy",
-  "https://giphy.com/gifs/love-sexy-hug-yG79QhdxXMtEc"
+  "https://giphy.com/gifs/love-sexy-hug-yG79QhdxXMtEc",
+  "https://giphy.com/gifs/6olUm4MR6RZ3W",
+  "https://giphy.com/gifs/adorable-kitten-puppy-B1M2bskCzSpR6"
 ]
 
 var chatons = [
@@ -361,7 +363,8 @@ var chiots = [
   "https://www.tenor.co/ODbE.gif",
   "https://www.tenor.co/FS0R.gif",
   "https://www.tenor.co/EqMU.gif",
-  "https://www.tenor.co/o63Z.gif"
+  "https://www.tenor.co/o63Z.gif",
+  "https://giphy.com/gifs/puppy-biscuit-emerging-4T7e4DmcrP9du"
 ]
 
 module.exports = {

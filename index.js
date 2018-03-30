@@ -27,28 +27,33 @@ var commandes = [
 var sendHelp = function(destinataire){
     destinataire.createDM().then(function(channel){
       channel.send("Salut, voici mes commandes actuellement disponibles :\n"
-        + "```\n"
+        + "```php\n"
         + "$help => permet de recevoir les commandes disponibles en mp \n"
-        + commandes[1] + " => permet d'afficher le gif d''un chaton \n"
-        + commandes[2] + " => permet d'affichet le gif d'un chiot \n"
-        + commandes[3] + " => renvoie un ping (je sais pas encore lequel ^^) \n"
-        + commandes[4] + " => surprise \n"
-        + commandes[5] + " {mention} => permet de faire un câlin à {mention} \n"
-        + commandes[6] + " => permet de jouer à la roulette russe\n"
-        + commandes[7] + " => permet de connaitre son score à la roulette russe\n"
-        + commandes[7] + " {mention} => permet de connaitre le score de {mention} à la roulette russe\n"
-        + commandes[8] + " => permet de lancer une partie de pendu\n"
-        + commandes[8] + " {nombre} => permet de lancer une partie de pendu à {nombre} lettres dans le mot. \
+        + "\n--------------------------------------------- GIFS ---------------------------------------------\n"
+        + commandes[1] + " => \"permet d'afficher le gif d'un chaton \"\n"
+        + commandes[2] + " => \"permet d'affichet le gif d'un chiot \"\n"
+        + commandes[5] + " {mention} => \"permet de faire un câlin à {mention} \"\n"
+        + "\n--------------------------------------------- JEUX ---------------------------------------------\n"
+        + "//------------------------Roulette russe------------------------\n"
+        + commandes[6] + " => \"permet de jouer à la roulette russe\"\n"
+        + commandes[7] + " => \"permet de connaitre son score à la roulette russe\"\n"
+        + commandes[7] + " {mention} => \"permet de connaitre le score de {mention} à la roulette russe\"\n"
+        + "//------------------------Pendu------------------------\n"
+        + commandes[8] + " => \"permet de lancer une partie de pendu\"\n"
+        + commandes[8] + " {nombre} => \"permet de lancer une partie de pendu à {nombre} lettres dans le mot. \
 Si {nombre} n'est pas un nombre, ou si il est inférieur ou supérieur au nombre de lettres des mots \
-dans la base de données, il sera pris au hasard.\n"
-        + commandes[9] + " => permet de tester une lettre au pendu\n"
-        + commandes[10] + " => permet de tester un mot au pendu\n"
-        + commandes[11] + " => permet d'arreter la partie de pendu en cours\n"
-        + commandes[0] + " => permet de te dire que tu pues \n"
-        + commandes[0] + " {mention} => permet de dire à {mention} qu'elle pue \n"
-        + commandes[0] + " {mentions} => permet de dire à chaque {mention} de {mentions} qu'elles puent \n"
+dans la base de données, il sera pris au hasard.\"\n"
+        + commandes[9] + " => \"permet de tester une lettre au pendu\"\n"
+        + commandes[10] + " => \"permet de tester un mot au pendu\"\n"
+        + commandes[11] + " => \"permet d'arreter la partie de pendu en cours\"\n"
+        + "\n--------------------------------------------- AUTRES ---------------------------------------------\n"
+        + commandes[4] + " => \"surprise\"\n"
+        + commandes[3] + " => \"renvoie un ping (je sais pas encore lequel ^^)\"\n"
+        + commandes[0] + " => \"permet de te dire que tu pues\"\n"
+        + commandes[0] + " {mention} => \"permet de dire à {mention} qu'elle pue\"\n"
+        + commandes[0] + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent\"\n"
         + "```\n"
-        + "Si tu as une idée d'amélioration, n'hésite pas à en parler à Fwancis, il étudiera ta demande ;)")
+        + "Si tu as une idée d'amélioration, n'hésite pas à en parler à Fwancis, il étudiera ta demande :wink:")
     })
 }
 
@@ -98,8 +103,7 @@ bot.on('guildMemberAdd', function(member){
 })
 
 bot.on('emojiCreate', function(emoji){
-  var guildTextChannels = util.getTextChannels(emoji.guild);
-  var guildGeneral = util.getTextChannelByName(guildTextChannels, "general");
+  var guildGeneral = util.getTextChannelByName(emoji.guild, "general");
   guildGeneral.send("L'emoji :" + emoji.name +": a vu le jour, soyez gentils avec lui :)");
 })
 

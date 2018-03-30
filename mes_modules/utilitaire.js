@@ -1,7 +1,7 @@
 var getArgsNotifs = function(args){
   var notifs = []
   for (var i = 0; i < args.length; i++) {
-    if (args[i].startsWith("<@")) {
+    if (args[i].startsWith("<@") || args[i]=="@everyone" || args[i]=="@here") {
       notifs.push(args[i]);
     }
   }
@@ -9,12 +9,12 @@ var getArgsNotifs = function(args){
 }
 
 var valeurAleatoireDuTableau = function(tableau){
-  var index = entierAléatoireEntre(0, tableau.length);
+  var index = entierAléatoireEntre(0, tableau.length-1);
   return tableau[index];
 }
 
-var entierAléatoireEntre = function (x, y){
-  return Math.floor(Math.random()*(y-x)+x);
+var entierAléatoireEntre = function (min, max){
+  return Math.floor(Math.random()*((max-min)+1)+min);
 }
 
 var getTextChannels = function(guild){
@@ -28,7 +28,8 @@ var getTextChannels = function(guild){
   return textChannels;
 }
 
-var getTextChannelByName = function(textChannels, channelName){
+var getTextChannelByName = function(guild, channelName){
+  var textChannels = getTextChannels(guild);
   var textChannel = [];
   textChannels.forEach(function(channel){
     if (channel.name === channelName) {
