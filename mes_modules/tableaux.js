@@ -7,7 +7,7 @@ var listeDeMots = [
   [
     "ail", "axe",
     "bar", "boa", "ble", "bel", "but", "bus", "bol",
-    "cil", "ces",
+    "cil", "ces", "cle",
     "des", "don", "dot", "dur",
     "ere", "epi", "ego", "ete",
     "fee", "fer", "feu", "fou",
@@ -59,173 +59,54 @@ var listeDeMots = [
     "feve", "feif", "fier", "film", "fils", "fine", "fins", "fion", "fisc", "fixe",
     "flan", "flic", "flop", "flot", "flou", "flux", "foie", "foin", "fois", "folc",
     "fond", "foot", "fort", "four", "fous", "frai" ,"fret", "fric", "froc", "fuel",
-    "fuir", "fute", "futs"
+    "fuir", "fute", "futs",
+    "gage", "gags", "gaie", "gain", "gais", "gala", "gang", "gant", "gare", "gars",
+    "gays", "gels", "gene", "gens", "gent", "gins", "gite", "glas", "gnon", "gnou",
+    "gode", "golf", "gond", "gong", "gout", "gras", "grau", "grec", "gres", "gris",
+    "grog", "gros", "grue", "guet", "gyms",
+    "haie", "hair", "hall", "halo", "hase", "hate", "haut", "hein", "hier", "hors",
+    "hote", "houe", "houx", "huer", "huit", "hure",
+    "ibis", "idee", "idem", "iles", "imam", "imbu", "inca", "inde", "inne", "inox",
+    "insu", "iode", "ions", "iota", "ires", "iris", "issu", "itou", "ivre",
+    "jack", "jade", "java", "jazz", "jean", "jeep", "jets", "jeun", "jeux", "jobs",
+    "joie", "joli", "jonc", "joue", "joug", "joui", "jour", "judo", "juge", "juif",
+    "juin", "jupe", "jury", "jute",
+    "kaki", "kami", "kart", "kepi", "khan", "kifs", "kiki", "kilo", "kilt", "kiwi",
+    "lacs", "lady", "laid", "laie", "lais", "lait", "lama", "lame", "lard", "lave",
+    "lent", "leur", "lice", "lien", "lieu", "lige", "lime", "lino", "lion", "lire",
+    "lits", "lobe", "loft", "loge", "logo", "loin", "lois", "lolo", "long", "lors",
+    "loto", "lots", "loup", "luge", "lune", "lute", "luth", "luxe", "lynx", "lyre",
+    "macs", "mage", "maia", "main", "mais", "maki", "male", "malt", "mana", "mans",
+    "marc", "mare", "mari", "mars", "math", "mats", "maux", "maya", "mecs", "melo",
+    "meme", "menu", "mere", "mers", "mets", "midi", "miel", "mien", "mime", "mimi",
+    "mine", "mini", "miro", "mise", "mite", "mode", "mois", "mole", "mols", "mome",
+    "mono", "mont", "mort", "moto", "mots", "moue", "muer", "muet", "mule", "murs",
+    "muse",
+    "nage", "naif", "nain", "nana", "naze", "nazi", "nefs", "nene", "neon", "nerf",
+    "neuf", "niai", "nids", "nier", "noce", "noir", "noix", "noms", "none", "nope",
+    "nord", "note", "nous", "nuee", "nuit", "nuls"
   ],
   [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     "",
     ""
   ],
   [
     "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    ""
+  ],
+  [
     "",
     ""
   ],
   [
     "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     ""
   ],
   [
     "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     ""
   ],
   [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ],
-  [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     "",
     ""
   ]
@@ -252,23 +133,23 @@ var messagesAccueil = [
   ["<@", ">, c'est toi qui a volé l'orange du marchand ?"],
   ["Ah mais qui voilà ? Inspecteur <@", "> !! Ça va être la joie, WOUHOU !!"],
   ["<@", ">, vous n'êtes pas juste un simple servant, vous êtes aussi le sosie \
-  d'un bulldog en dépressurisation, et c'est un compliment."],
+d'un bulldog en dépressurisation, et c'est un compliment."],
   ["J'me présente, je m'appelle <@", ">. J'voudrais bien, réussir ma vie."],
   ["Hotel Gudural, 7 étoiles de la place Elister Donovan, du groupe Franky Motel fondé en 2001, \
-  budget Slip Tranquille rattaché Suisse, France et Belgique. Formule petit déjeuner : \"pain, céréales, sucrés, salés, \
-  moutarde et miel\", menu Riviera Transatlantique à partir de 11€, satellite et câble contact fixe et large \
-  choix d’infusion tisane et café, numéro de SIRET 790778815-015, SARL au capital de 150 000 boules, passoires en \
-  marbre et les baldaquins à matelas à mémoire de forme, accès limite à la WiFi, gouttières en zinc et tuiles en terre \
-  glaise, oreiller pur laine avec intérieur coton, moquette « Aux 4 Murailles » ignifugée garanti sans paraben colorant \
-  ni conservateur, bâtiment sous vidéo-surveillance H24, partenaire aux Jeux Olympiques d’Hiver de Vancouver au Canada en \
-  2009, premier prix de la Literie du Salon du Sommeil en 1995, lauréat du concours de la meilleure Piaule sans vis-à-vis \
-  exposée plein sud avec double rideaux dont deux sont en daim, établissement quasi homologué, centre de thalassothérapie, \
-  remise en forme soin corps et visage formule antipelliculaire, abdos SQUAT et tractions, ensuite sélecte ta connexion, \
-  quand elle danse elle me fait perdre la raison boom boom she boom total reggae salsa calipso, la maintenance du \
-  distributeur de canettes est assurée  par une société du GERS et non-agréée et par la SRCT, c’est comme la mangouste \
-  l’animal mais sans le U le I le A le E, la maison n’accepte ni chèque ni troc ni peau ni fourrure mais espèces et \
-  carte bleue, nos bâtiments sont tous désamiantés, les rats sont nourris, les draps sont lavés, notre équipe est soudée \
-  et l’herbe coupée récemment ramassée que puis-je pour <@", "> ?"],
+budget Slip Tranquille rattaché Suisse, France et Belgique. Formule petit déjeuner : \"pain, céréales, sucrés, salés, \
+moutarde et miel\", menu Riviera Transatlantique à partir de 11€, satellite et câble contact fixe et large \
+choix d’infusion tisane et café, numéro de SIRET 790778815-015, SARL au capital de 150 000 boules, passoires en \
+marbre et les baldaquins à matelas à mémoire de forme, accès limite à la WiFi, gouttières en zinc et tuiles en terre \
+glaise, oreiller pur laine avec intérieur coton, moquette « Aux 4 Murailles » ignifugée garanti sans paraben colorant \
+ni conservateur, bâtiment sous vidéo-surveillance H24, partenaire aux Jeux Olympiques d’Hiver de Vancouver au Canada en \
+2009, premier prix de la Literie du Salon du Sommeil en 1995, lauréat du concours de la meilleure Piaule sans vis-à-vis \
+exposée plein sud avec double rideaux dont deux sont en daim, établissement quasi homologué, centre de thalassothérapie, \
+remise en forme soin corps et visage formule antipelliculaire, abdos SQUAT et tractions, ensuite sélecte ta connexion, \
+quand elle danse elle me fait perdre la raison boom boom she boom total reggae salsa calipso, la maintenance du \
+distributeur de canettes est assurée  par une société du GERS et non-agréée et par la SRCT, c’est comme la mangouste \
+l’animal mais sans le U le I le A le E, la maison n’accepte ni chèque ni troc ni peau ni fourrure mais espèces et \
+carte bleue, nos bâtiments sont tous désamiantés, les rats sont nourris, les draps sont lavés, notre équipe est soudée \
+et l’herbe coupée récemment ramassée que puis-je pour <@", "> ?"],
   ["$hug <@", ">"]
 ]
 

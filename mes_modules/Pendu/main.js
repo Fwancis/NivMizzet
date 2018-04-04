@@ -4,7 +4,6 @@ const util = require('../utilitaire.js');
 
 var motATrouver;
 var actuellementTrouve;
-var nbLettres;
 var lettresDemandees = [];
 
 const nbLettresMin = 3;
@@ -13,16 +12,16 @@ const nbLettresMax = 4;
 var start = function(message){
 	if (jeuACommence()){
 		message.channel.send("Il y a déjà un mot à trouver");
-		afficheActuel(message);
+		afficheEtatDuJeu(message);
 	}else{
 		initGame(message);
 		message.channel.send("Le mot à trouver a été défini. Il contient " + motATrouver.length + " lettres.")
-		afficheActuel(message);
+		afficheEtatDuJeu(message);
 	}
-	message.channel.send("Pour jouer au pendu, utilisez **$lettre {lettre}** pour tester une lettre et **$mot {mot}** pour tester un mot. ");
 }
 
 var initGame = function(message){
+	var nbLettres;
 	var messageSplite = message.content.split(" ");
 	if (messageSplite.length > 1){
 		nbLettres = parseInt(messageSplite[1]);
@@ -33,10 +32,10 @@ var initGame = function(message){
 		nbLettres = util.entierAléatoireEntre(nbLettresMin, nbLettresMax);
 	}
 	nbLettres = Math.floor(nbLettres);
-	startGame();
+	startGame(nbLettres);
 }
 
-var startGame = function(){
+var startGame = function(nbLettres){
 	actuellementTrouve = []
 	for (var i = 0; i < nbLettres; i++) {
 		actuellementTrouve[i] = " ";
@@ -46,23 +45,27 @@ var startGame = function(){
 }
 
 var afficheEtatDuJeu = function(message){
+	var res = "";
 	if (!jeuACommence()){
-		message.channel.send("Le jeu n'a pas commencé");
+		res+="Le jeu n'a pas commencé";
+		res+= "Pour démarrer une partie de pendu, utilisez **$pendu** ou **$pendu {nombreDeLettres}**.";
 	}else{
-		afficheActuel(message);
-		afficheLettresDemandees(message);
+		res+=getActuel(message)+"\n";
+		res+=getLettresDemandees(message)+"\n";
+		res+= "Pour jouer au pendu, utilisez **$lettre {lettre}** pour tester une lettre et **$mot {mot}** pour tester un mot. ";
 	}
-	message.channel.send("Pour jouer au pendu, utilisez **$lettre {lettre}** pour tester une lettre et **$mot {mot}** pour tester un mot. ");
+	message.channel.send(res);
 }
 
-var afficheActuel = function(message){
-	message.channel.send("Mot à trouver :\n" + affichage.getMot(actuellementTrouve));
+var getActuel = function(){
+	return "Mot à trouver :\n" + affichage.getMot(actuellementTrouve);
 }
 
-var afficheLettresDemandees = function(message){
+var getLettresDemandees = function(message){
 	if(lettresDemandees.length>0){
-		message.channel.send("Lettres demandées :\n" + affichage.getMot(lettresDemandees.join("")));
+		return "Lettres demandées :\n" + affichage.getMot(lettresDemandees.join(""));
 	}
+	return "";
 }
 
 var endGame = function(message){
@@ -73,7 +76,6 @@ var endGame = function(message){
 	message.channel.send("La partie de pendu est terminée, le mot était " + affichage.getMot(motATrouver) + ", merci d'avoir joué :cookie:");
 	motATrouver = undefined;
 	actuellementTrouve = undefined;
-	nbLettres = undefined;
 	lettresDemandees = [];
 }
 
