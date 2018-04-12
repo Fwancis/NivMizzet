@@ -4,7 +4,6 @@ var base = [
 ]
 
 var listeDeMots = [
-  [
     "ail", "axe",
     "bar", "boa", "ble", "bel", "but", "bus", "bol",
     "cil", "ces", "cle",
@@ -27,9 +26,7 @@ var listeDeMots = [
     "une", "uni",
     "val", "vin", "vie", "vol", "vue",
     "yak",  "yen", "yin",
-    "zen", "zoo"
-  ],
-  [
+    "zen", "zoo",
     "abat", "abbe", "abri", "abus", "acne", "acre", "acte", "ados", "afin", "afro",
     "ages", "agir", "aide", "aigu", "aile", "ails", "aine", "aire", "aise", "alea",
     "alpe", "alto", "alun", "amas", "amer", "ames", "amie", "amis", "anal", "anes",
@@ -84,32 +81,24 @@ var listeDeMots = [
     "muse",
     "nage", "naif", "nain", "nana", "naze", "nazi", "nefs", "nene", "neon", "nerf",
     "neuf", "niai", "nids", "nier", "noce", "noir", "noix", "noms", "none", "nope",
-    "nord", "note", "nous", "nuee", "nuit", "nuls"
-  ],
-  [
-    "",
-    ""
-  ],
-  [
-    "",
-    ""
-  ],
-  [
-    "",
-    ""
-  ],
-  [
-    "",
-    ""
-  ],
-  [
-    "",
-    ""
-  ],
-  [
-    "",
-    ""
-  ]
+    "nord", "note", "nous", "nuee", "nuit", "nuls",
+    "obus", "ocre", "odes", "oeil", "oeuf", "ogre", "ohms", "oies", "omis", "once",
+    "onde", "onyx", "onze", "opus", "oral", "orbe", "orée", "ores", "orge", "oser",
+    "oter", "ouie", "ouir", "ours", "oust", "ovin", "ovni",
+    "pack", "page", "paie", "pain", "pair", "paix", "pale", "pans", "paon", "papa",
+    "pape", "papi", "papy", "parc", "pari", "pate", "paye", "pays", "peau", "peon",
+    "pepe", "pere", "peur", "peze", "piaf", "pics", "pied", "pieu", "pile", "pins",
+    "pion", "pipe", "pipi", "pire", "plan", "plat", "plis", "plot", "plus", "pneu",
+    "poil", "pois", "pole", "poli", "polo", "pont", "porc", "pore", "port", "pose",
+    "pote", "pots", "pouf", "pour", "poux", "pres", "pret", "prix", "prof", "pros",
+    "prou", "pubs", "puce", "puer", "puis", "pull", "puma", "punk", "pure", "purs",
+    "pute",
+    "quai", "quel", "quoi",
+    "race", "rage", "raid", "raie", "rail", "rale", "rame", "rami", "rang", "rape",
+    "rapt", "rare", "rate", "rats", "ravi", "reac", "recu", "reel", "reer", "regi",
+    "rein", "rene", "rets", "reve", "rhum", "ride", "rien", "rime", "ring", "rire",
+    "rite", "rive", "robe", "rocs", "rois", "role", "rond", "rose", "roti", "rots",
+    "roue", "roux", "rude", "ruee", "ruer", "rues", "ruse"
 ];
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",

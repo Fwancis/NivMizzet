@@ -6,6 +6,7 @@ const roulette = require('./mes_modules/Roulette/roulette.js')
 const prout = require('./mes_modules/prout.js')
 const tabs = require('./mes_modules/tableaux.js')
 const pendu = require('./mes_modules/Pendu/main.js')
+const idCreateur = "219911765134278667"
 
 var channels = bot.channels;
 
@@ -53,13 +54,12 @@ dans la base de données, il sera pris au hasard.\"\n"
         + commandes[0] + " {mention} => \"permet de dire à {mention} qu'elle pue\"\n"
         + commandes[0] + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent\"\n"
         + "```\n"
-        + "Si tu as une idée d'amélioration, n'hésite pas à en parler à Fwancis, il étudiera ta demande :wink:")
+        + "Si tu as une idée d'amélioration, n'hésite pas à en parler à son créateur , il étudiera ta demande :wink:")
     })
 }
 
 bot.on('ready', function () {
   bot.user.setActivity("$help")
-  console.log("Je suis connecté !")
 })
 
 bot.on('message', function(message){
@@ -81,16 +81,18 @@ bot.on('message', function(message){
     roulette.getRecord(message);
   }else if(message.content === "$help"){
     sendHelp(message.author);
-  }/*else if(message.content.startsWith("$spam")){
-    message.channel.send(message)
-  }*/else if(message.content.startsWith(commandes[8])){
+  }else if(message.content.startsWith("$test")){
+    var k = 3/0;
+    var l = k[42];
+    var i = banana;
+  }else if(message.content.startsWith(commandes[8])){
     pendu.start(message);
   }else if(message.content.startsWith(commandes[9])){
     pendu.testeLettre(message);
   }else if(message.content.startsWith(commandes[10])){
     pendu.testeMot(message);
   }else if(message.content.startsWith(commandes[11])){
-    pendu.endGame(message);
+    message.channel.send(pendu.endGame(message));
   }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
@@ -106,5 +108,17 @@ bot.on('emojiCreate', function(emoji){
   var guildGeneral = util.getTextChannelByName(emoji.guild, "general");
   guildGeneral.send("L'emoji :" + emoji.name +": a vu le jour, soyez gentils avec lui :)");
 })
-
+/*
+bot.on('typingStop', function(channel, user){
+  channel.send(user + ", on t'a vu écrire !!")
+})
+*/
+/*
+bot.on('messageUpdate', function(oldMessage, newMessage){
+  console.log("ici");
+  oldMessage.channel.send(oldMessage.author + " vient de changer \n```\n" +
+                        oldMessage.content + "\n```\nen\n```\n" + newMessage.content + "\n```\n");
+});
+*/
 bot.login('NDEyNjM3MDA1MDM0NTUzMzQ0.DWNY8Q.COIHm0iqTU9X57JKyp7DFPwKzEY')
+console.log("Je suis connecté !")
