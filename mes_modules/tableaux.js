@@ -98,7 +98,13 @@ var listeDeMots = [
     "rapt", "rare", "rate", "rats", "ravi", "reac", "recu", "reel", "reer", "regi",
     "rein", "rene", "rets", "reve", "rhum", "ride", "rien", "rime", "ring", "rire",
     "rite", "rive", "robe", "rocs", "rois", "role", "rond", "rose", "roti", "rots",
-    "roue", "roux", "rude", "ruee", "ruer", "rues", "ruse"
+    "roue", "roux", "rude", "ruee", "ruer", "rues", "ruse",
+    "sacs", "saga", "sage", "sain", "sake", "sale", "sang", "sans", "sauf", "saut",
+    "saxo", "scie", "seau", "secs", "sein", "sels", "sept", "sets", "seul", "seve", 
+    "sexe", "sexy", "site", "shis", "slip", "slow", "snob", "soda", "sofa", "soie", 
+    "soif", "soin", "soir", "soja", "sole", "solo", "sols", "sono", "sons", "sots", 
+    "souk", "soul", "sous", "spot", "star", "stop", "sucs", "suer", "suez", "suie",
+    "sure", "surf" 
 ];
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
