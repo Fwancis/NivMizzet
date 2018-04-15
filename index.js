@@ -22,7 +22,8 @@ var commandes = [
   "$pendu",
   "$lettre",
   "$mot",
-  "$stopPendu"
+  "$stopPendu",
+  "$test"
 ]
 
 var sendHelp = function(destinataire){
@@ -81,10 +82,6 @@ bot.on('message', function(message){
     roulette.getRecord(message);
   }else if(message.content === "$help"){
     sendHelp(message.author);
-  }else if(message.content.startsWith("$test")){
-    var k = 3/0;
-    var l = k[42];
-    var i = banana;
   }else if(message.content.startsWith(commandes[8])){
     pendu.start(message);
   }else if(message.content.startsWith(commandes[9])){
@@ -93,10 +90,20 @@ bot.on('message', function(message){
     pendu.testeMot(message);
   }else if(message.content.startsWith(commandes[11])){
     message.channel.send(pendu.endGame(message));
+  }else if(message.content.startsWith(commandes[12])){
+    test(message);
   }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
 })
+
+var test = function(message){
+  var messageSplite = message.content.split(" ");
+  var notifsGetWithGetArgsNotif = util.getArgsNotifs(messageSplite);
+  var notifsGetWithGetMessageNotif = util.getMessageNotifs(message);
+  console.log(notifsGetWithGetArgsNotif);
+  console.log(notifsGetWithGetMessageNotif);
+}
 
 bot.on('guildMemberAdd', function(member){
   var guildTextChannels = util.getTextChannels(member.guild);
@@ -108,17 +115,19 @@ bot.on('emojiCreate', function(emoji){
   var guildGeneral = util.getTextChannelByName(emoji.guild, "general");
   guildGeneral.send("L'emoji :" + emoji.name +": a vu le jour, soyez gentils avec lui :)");
 })
+
+
 /*
 bot.on('typingStop', function(channel, user){
-  channel.send(user + ", on t'a vu écrire !!")
+  channel.send(user + ", on t'a vu !! Tu voulais dire quoi ? :yum:")
 })
 */
 /*
 bot.on('messageUpdate', function(oldMessage, newMessage){
-  console.log("ici");
   oldMessage.channel.send(oldMessage.author + " vient de changer \n```\n" +
                         oldMessage.content + "\n```\nen\n```\n" + newMessage.content + "\n```\n");
 });
 */
+
 bot.login('NDEyNjM3MDA1MDM0NTUzMzQ0.DWNY8Q.COIHm0iqTU9X57JKyp7DFPwKzEY')
 console.log("Je suis connecté !")

@@ -8,6 +8,27 @@ var getArgsNotifs = function(args){
   return notifs;
 }
 
+var getMessageNotifs = function(message){
+  var mentions = message.mentions;
+  var isEveryoneOrHereCalled = mentions.everyone;
+  if (isEveryoneOrHereCalled){
+    return getEveryoneAndHereNotif(message);
+  }
+  var messageSplite = message.content.split(" ");
+  return mentions.users.array();
+}
+
+var getEveryoneAndHereNotif = function(message){
+  var messageSplite = message.content.split(" ");
+  var notifs = []
+  for (var i = 0; i < args.length; i++) {
+    if ((messageSplite[i]=="@everyone" || messageSplite[i]=="@here") && !tableauContient(notifs, messageSplite[i])) {
+      notifs.push(messageSplite[i]);
+    }
+  }
+  return notifs;
+}
+
 var valeurAleatoireDuTableau = function(tableau){
   var index = entierAléatoireEntre(0, tableau.length-1);
   return tableau[index];
@@ -54,5 +75,6 @@ module.exports = {
   valeurAleatoireDuTableau: valeurAleatoireDuTableau,
   entierAléatoireEntre: entierAléatoireEntre,
   tableauContient: tableauContient,
-  getIndexOfArrayElement: getIndexOfArrayElement
+  getIndexOfArrayElement: getIndexOfArrayElement,
+  getMessageNotifs: getMessageNotifs
 }
