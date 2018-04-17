@@ -100,11 +100,17 @@ var listeDeMots = [
     "rite", "rive", "robe", "rocs", "rois", "role", "rond", "rose", "roti", "rots",
     "roue", "roux", "rude", "ruee", "ruer", "rues", "ruse",
     "sacs", "saga", "sage", "sain", "sake", "sale", "sang", "sans", "sauf", "saut",
-    "saxo", "scie", "seau", "secs", "sein", "sels", "sept", "sets", "seul", "seve", 
-    "sexe", "sexy", "site", "shis", "slip", "slow", "snob", "soda", "sofa", "soie", 
-    "soif", "soin", "soir", "soja", "sole", "solo", "sols", "sono", "sons", "sots", 
+    "saxo", "scie", "seau", "secs", "sein", "sels", "sept", "sets", "seul", "seve",
+    "sexe", "sexy", "site", "shis", "slip", "slow", "snob", "soda", "sofa", "soie",
+    "soif", "soin", "soir", "soja", "sole", "solo", "sols", "sono", "sons", "sots",
     "souk", "soul", "sous", "spot", "star", "stop", "sucs", "suer", "suez", "suie",
-    "sure", "surf" 
+    "sure", "surf",
+    "tact", "taie", "talc", "tank", "tant", "taon", "tard", "tare", "taux", "taxe",
+    "taxi", "tele", "tels", "test", "tetu", "thes", "thon", "thym", "tics", "tien",
+    "tige", "tilt", "tirs", "tocs", "toge", "toit", "tole", "tome", "tons", "topo",
+    "tops", "tors", "tort", "tour", "tous", "tout", "toux", "trac", "tram", "tres",
+    "trio", "trip", "tris", "troc", "trop", "trot", "trou", "truc", "tsar", "tuba",
+    "tube", "tuer", "turc", "type", "typo"
 ];
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
