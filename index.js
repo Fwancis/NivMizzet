@@ -98,11 +98,7 @@ bot.on('message', function(message){
 })
 
 var test = function(message){
-  var messageSplite = message.content.split(" ");
-  var notifsGetWithGetArgsNotif = util.getArgsNotifs(messageSplite);
-  var notifsGetWithGetMessageNotif = util.getMessageNotifs(message);
-  console.log(notifsGetWithGetArgsNotif);
-  console.log(notifsGetWithGetMessageNotif);
+  util.test(message);
 }
 
 bot.on('guildMemberAdd', function(member){

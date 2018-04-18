@@ -8,25 +8,12 @@ var getArgsNotifs = function(args){
   return notifs;
 }
 
-var getMessageNotifs = function(message){
-  var mentions = message.mentions;
-  var isEveryoneOrHereCalled = mentions.everyone;
-  if (isEveryoneOrHereCalled){
-    return getEveryoneAndHereNotif(message);
-  }
-  var messageSplite = message.content.split(" ");
-  return mentions.users.array();
+var test = function(message){
+  isOwner(message.guild, message.author);
 }
 
-var getEveryoneAndHereNotif = function(message){
-  var messageSplite = message.content.split(" ");
-  var notifs = []
-  for (var i = 0; i < args.length; i++) {
-    if ((messageSplite[i]=="@everyone" || messageSplite[i]=="@here") && !tableauContient(notifs, messageSplite[i])) {
-      notifs.push(messageSplite[i]);
-    }
-  }
-  return notifs;
+var isOwner = function(guild, member){
+  console.log(guild.ownerID == member.id);
 }
 
 var valeurAleatoireDuTableau = function(tableau){
@@ -76,5 +63,5 @@ module.exports = {
   entierAléatoireEntre: entierAléatoireEntre,
   tableauContient: tableauContient,
   getIndexOfArrayElement: getIndexOfArrayElement,
-  getMessageNotifs: getMessageNotifs
+  test: test
 }

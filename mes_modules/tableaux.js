@@ -140,7 +140,7 @@ d'un bulldog en dépressurisation, et c'est un compliment."],
 budget Slip Tranquille rattaché Suisse, France et Belgique. Formule petit déjeuner : \"pain, céréales, sucrés, salés, \
 moutarde et miel\", menu Riviera Transatlantique à partir de 11€, satellite et câble contact fixe et large \
 choix d’infusion tisane et café, numéro de SIRET 790778815-015, SARL au capital de 150 000 boules, passoires en \
-marbre et les baldaquins à matelas à mémoire de forme, accès limite à la WiFi, gouttières en zinc et tuiles en terre \
+marbre et les baldaquins à matelas à mémoire de forme, accès limité à la WiFi, gouttières en zinc et tuiles en terre \
 glaise, oreiller pur laine avec intérieur coton, moquette « Aux 4 Murailles » ignifugée garanti sans paraben colorant \
 ni conservateur, bâtiment sous vidéo-surveillance H24, partenaire aux Jeux Olympiques d’Hiver de Vancouver au Canada en \
 2009, premier prix de la Literie du Salon du Sommeil en 1995, lauréat du concours de la meilleure Piaule sans vis-à-vis \

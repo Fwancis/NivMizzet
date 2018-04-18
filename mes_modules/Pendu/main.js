@@ -121,10 +121,10 @@ var verifieLettre = function(lettre){
 	lettresDemandees.push(lettrelc);
 	if (laLettreEstDansLeMotATrouver(lettrelc)) {
 		remplaceLettreDansActuel(lettrelc);
-		resultatString = "La lettre est dans le mot.";
+		resultatString = "La lettre est dans le mot.\n";
 		resultatBool = true;
 	}else{
-		resultatString = "La lettre n'est pas dans le mot.";
+		resultatString = "La lettre n'est pas dans le mot.\n";
 		resultatBool = false;
 	}
 	return [resultatString, resultatBool];
@@ -166,7 +166,7 @@ var testeMot = function(message){
 			reponse += "Félicitation " + message.author + ", tu as trouvé le mot !!\n";
 			reponse += endGame(message);
 		}else{
-			reponse += "Non " + message.author + ", ce n'est pas le bon mot.";
+			reponse += "Non " + message.author + ", ce n'est pas le bon mot.\n";
 			reponse += getEtatDuJeu(message);
 		}
 	}
