@@ -23,7 +23,7 @@ var commandes = [
   "$lettre",
   "$mot",
   "$stopPendu",
-  "$test"
+  "$pinkie"
 ]
 
 var sendHelp = function(destinataire){
@@ -49,8 +49,9 @@ dans la base de données, il sera pris au hasard.\"\n"
         + commandes[10] + " => \"permet de tester un mot au pendu\"\n"
         + commandes[11] + " => \"permet d'arreter la partie de pendu en cours\"\n"
         + "\n--------------------------------------------- AUTRES ---------------------------------------------\n"
-        + commandes[4] + " => \"surprise\"\n"
         + commandes[3] + " => \"renvoie un ping (je sais pas encore lequel ^^)\"\n"
+        + commandes[4] + " => \"surprise\"\n"
+        + commandes[12] + " => \"permet d'afficher un gif de Pinkie Pie\"\n"
         + commandes[0] + " => \"permet de te dire que tu pues\"\n"
         + commandes[0] + " {mention} => \"permet de dire à {mention} qu'elle pue\"\n"
         + commandes[0] + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent\"\n"
@@ -91,6 +92,8 @@ bot.on('message', function(message){
   }else if(message.content.startsWith(commandes[11])){
     message.channel.send(pendu.endGame(message));
   }else if(message.content.startsWith(commandes[12])){
+    message.channel.send(message.author + ", voici une Pinkie Pie rien que pour toi :kissing:", gifs.doPinkie(message, Discord));
+  }else if(message.content.startsWith("$test")){
     test(message);
   }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
@@ -98,7 +101,7 @@ bot.on('message', function(message){
 })
 
 var test = function(message){
-  util.test(message);
+  util.test(message, Discord);
 }
 
 bot.on('guildMemberAdd', function(member){

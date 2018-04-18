@@ -8,8 +8,7 @@ var getArgsNotifs = function(args){
   return notifs;
 }
 
-var test = function(message){
-  isOwner(message.guild, message.author);
+var test = function(message, Discord){
 }
 
 var isOwner = function(guild, member){
@@ -63,5 +62,6 @@ module.exports = {
   entierAléatoireEntre: entierAléatoireEntre,
   tableauContient: tableauContient,
   getIndexOfArrayElement: getIndexOfArrayElement,
+  isOwner: isOwner,
   test: test
 }

@@ -32,8 +32,16 @@ var doChiot = function(message){
   return util.valeurAleatoireDuTableau(tabs.chiots);
 }
 
+var doPinkie = function(message, Discord){
+  var pinkieAEnvoyer = "./mes_modules/gifs/Pinkie/";
+  pinkieAEnvoyer+=util.valeurAleatoireDuTableau(tabs.pinkies);
+  var attachment = new Discord.Attachment(pinkieAEnvoyer);
+  return attachment;
+}
+
 module.exports = {
   doHug: doHug,
   doChaton: doChaton,
-  doChiot: doChiot
+  doChiot: doChiot,
+  doPinkie: doPinkie
 }
