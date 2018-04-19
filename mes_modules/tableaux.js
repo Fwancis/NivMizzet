@@ -3,34 +3,6 @@ var base = [
   ""
 ]
 
-var pinkies = [
-  "Pinkie badass.gif",
-  "Pinkie big hug.gif",
-  "Pinkie cereals.gif",
-  "Pinkie cry.gif",
-  "Pinkie dances.gif",
-  "Pinkie eat background.gif",
-  "Pinkie haters gona hate.gif",
-  "Pinkie hugs.gif",
-  "Pinnkie laugh.gif",
-  "Pinkie like a boss.gif",
-  "Pinkie miss you.gif",
-  "Pinkie party time.gif",
-  "Pinkie passing.gif",
-  "Pinkie perfect plan.gif",
-  "Pinkie plays piano.gif",
-  "Pinkie please.gif",
-  "Pinkie post fascinating.gif",
-  "Pinkie screw gravity.gif",
-  "Pinnkie Sherlock.gif",
-  "Pinkie swimming sand.gif",
-  "Pinkie wake up.gif",
-  "Pinkie YES.gif",
-  "Pinkie.gif",
-  "Pinkies.gif",
-  "Sad Pinkie.gif"
-]
-
 var listeDeMots = [
     "ail", "axe",
     "bar", "boa", "ble", "bel", "but", "bus", "bol",
@@ -295,6 +267,5 @@ module.exports = {
   chiots: chiots,
   messagesAccueil: messagesAccueil,
   alphabet: alphabet,
-  listeDeMots: listeDeMots,
-  pinkies: pinkies
+  listeDeMots: listeDeMots
 }

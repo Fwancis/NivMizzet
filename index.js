@@ -64,7 +64,7 @@ bot.on('ready', function () {
   bot.user.setActivity("$help")
 })
 
-bot.on('message', function(message){
+bot.on('message', async function(message){
   if (message.content.startsWith(commandes[0])) {
     prout.doProut(message);
   } else if (message.content === commandes[1]){
@@ -72,7 +72,8 @@ bot.on('message', function(message){
   }else if (message.content === commandes[2]){
     message.channel.send(gifs.doChiot(message))
   }else if(message.content === commandes[3]){
-    message.channel.send(bot.ping);
+    const m = await message.channel.send("Ping en calcul... \nVeuillez patienter.");
+    m.edit(`Le ping est de ${m.createdTimestamp - message.createdTimestamp}ms. `);
   }else if(message.content === commandes[4]){
     message.reply("Tu as cru quoi ? Que j'allais répondre ping ?");
   }else if(message.content.startsWith(commandes[5])){
@@ -92,7 +93,7 @@ bot.on('message', function(message){
   }else if(message.content.startsWith(commandes[11])){
     message.channel.send(pendu.endGame(message));
   }else if(message.content.startsWith(commandes[12])){
-    message.channel.send(message.author + ", voici une Pinkie Pie rien que pour toi :kissing:", gifs.doPinkie(message, Discord));
+    message.channel.send(message.author + ", voici une Pinkie Pie rien que pour toi :kissing:", gifs.doPinkie(message));
   }else if(message.content.startsWith("$test")){
     test(message);
   }else if(message.content.startsWith("$")){

@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+const fs = require("fs");
 const util = require('./utilitaire.js');
 const tabs = require('./tableaux.js');
 
@@ -26,17 +28,23 @@ var doHug = function(message){
 
 var doChaton = function(message){
   return util.valeurAleatoireDuTableau(tabs.chatons);
+  var res = 2;
 }
 
 var doChiot = function(message){
   return util.valeurAleatoireDuTableau(tabs.chiots);
 }
 
-var doPinkie = function(message, Discord){
-  var pinkieAEnvoyer = "./mes_modules/gifs/Pinkie/";
-  pinkieAEnvoyer+=util.valeurAleatoireDuTableau(tabs.pinkies);
-  var attachment = new Discord.Attachment(pinkieAEnvoyer);
+var getGif = function(gifToGet){
+  var gifFolder = "./mes_modules/gifs/" + gifToGet + "/";
+  var tabGifs = fs.readdirSync(gifFolder);
+  var gif = gifFolder + util.valeurAleatoireDuTableau(tabGifs);
+  var attachment = new Discord.Attachment(gif);
   return attachment;
+}
+
+var doPinkie = function(message){
+  return getGif("Pinkie");
 }
 
 module.exports = {
