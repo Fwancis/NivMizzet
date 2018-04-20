@@ -77,7 +77,8 @@ bot.on('message', async function(message){
   }else if(message.content === commandes[4]){
     message.reply("Tu as cru quoi ? Que j'allais répondre ping ?");
   }else if(message.content.startsWith(commandes[5])){
-    message.channel.send(gifs.doHug(message))
+    var hug = gifs.doHug(message);
+    message.channel.send(hug[0], hug[1])
   }else if(message.content === commandes[6]){
     message.reply(roulette.jeuDeLaRoulette(message));
   }else if(message.content.startsWith(commandes[7])){

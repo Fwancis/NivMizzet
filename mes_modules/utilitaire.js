@@ -8,7 +8,8 @@ var getArgsNotifs = function(args){
   return notifs;
 }
 
-var test = function(message, Discord){
+var test = function(message){
+  message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
 }
 
 var isOwner = function(guild, member){
