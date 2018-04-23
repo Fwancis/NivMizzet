@@ -10,21 +10,22 @@ const idCreateur = "219911765134278667"
 
 var channels = bot.channels;
 
-var commandes = [
-  "$prout",
-  "$chaton",
-  "$chiot",
-  "$ping",
-  "$pong",
-  "$hug",
-  "$roulette",
-  "$record",
-  "$pendu",
-  "$lettre",
-  "$mot",
-  "$stopPendu",
-  "$pinkie"
-]
+var commandes = {
+  "prout": "$prout",
+  "chaton": "$chaton",
+  "chiot": "$chiot",
+  "ping": "$ping",
+  "pong": "$pong",
+  "hug": "$hug",
+  "roulette": "$roulette",
+  "record": "$record",
+  "pendu": "$pendu",
+  "lettre": "$lettre",
+  "mot": "$mot",
+  "stopPendu": "$stopPendu",
+  "pinkie": "$pinkie"
+}
+
 
 var sendHelp = function(destinataire){
     destinataire.createDM().then(function(channel){
@@ -32,29 +33,29 @@ var sendHelp = function(destinataire){
         + "```php\n"
         + "$help => permet de recevoir les commandes disponibles en mp \n"
         + "\n--------------------------------------------- GIFS ---------------------------------------------\n"
-        + commandes[1] + " => \"permet d'afficher le gif d'un chaton \"\n"
-        + commandes[2] + " => \"permet d'affichet le gif d'un chiot \"\n"
-        + commandes[5] + " {mention} => \"permet de faire un câlin à {mention} \"\n"
+        + commandes.chaton + " => \"permet d'afficher le gif d'un chaton \"\n"
+        + commandes.chiot + " => \"permet d'affichet le gif d'un chiot \"\n"
+        + commandes.hug + " {mention} => \"permet de faire un câlin à {mention} \"\n"
         + "\n--------------------------------------------- JEUX ---------------------------------------------\n"
         + "//------------------------Roulette russe------------------------\n"
-        + commandes[6] + " => \"permet de jouer à la roulette russe\"\n"
-        + commandes[7] + " => \"permet de connaitre son score à la roulette russe\"\n"
-        + commandes[7] + " {mention} => \"permet de connaitre le score de {mention} à la roulette russe\"\n"
+        + commandes.roulette + " => \"permet de jouer à la roulette russe\"\n"
+        + commandes.record + " => \"permet de connaitre son score à la roulette russe\"\n"
+        + commandes.record + " {mention} => \"permet de connaitre le score de {mention} à la roulette russe\"\n"
         + "//------------------------Pendu------------------------\n"
-        + commandes[8] + " => \"permet de lancer une partie de pendu\"\n"
-        + commandes[8] + " {nombre} => \"permet de lancer une partie de pendu à {nombre} lettres dans le mot. \
+        + commandes.pendu + " => \"permet de lancer une partie de pendu\"\n"
+        + commandes.pendu + " {nombre} => \"permet de lancer une partie de pendu à {nombre} lettres dans le mot. \
 Si {nombre} n'est pas un nombre, ou si il est inférieur ou supérieur au nombre de lettres des mots \
 dans la base de données, il sera pris au hasard.\"\n"
-        + commandes[9] + " => \"permet de tester une lettre au pendu\"\n"
-        + commandes[10] + " => \"permet de tester un mot au pendu\"\n"
-        + commandes[11] + " => \"permet d'arreter la partie de pendu en cours\"\n"
+        + commandes.lettre + " => \"permet de tester une lettre au pendu\"\n"
+        + commandes.mot + " => \"permet de tester un mot au pendu\"\n"
+        + commandes.stopPendu + " => \"permet d'arreter la partie de pendu en cours\"\n"
         + "\n--------------------------------------------- AUTRES ---------------------------------------------\n"
-        + commandes[3] + " => \"renvoie un ping (je sais pas encore lequel ^^)\"\n"
-        + commandes[4] + " => \"surprise\"\n"
-        + commandes[12] + " => \"permet d'afficher un gif de Pinkie Pie\"\n"
-        + commandes[0] + " => \"permet de te dire que tu pues\"\n"
-        + commandes[0] + " {mention} => \"permet de dire à {mention} qu'elle pue\"\n"
-        + commandes[0] + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent\"\n"
+        + commandes.ping + " => \"renvoie le ping entre le bot et l'utilisateur\"\n"
+        + commandes.pong + " => \"surprise\"\n"
+        + commandes.pinkie + " => \"permet d'afficher un gif de Pinkie Pie\"\n"
+        + commandes.prout + " => \"permet de te dire que tu pues\"\n"
+        + commandes.prout + " {mention} => \"permet de dire à {mention} qu'elle pue\"\n"
+        + commandes.prout + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent\"\n"
         + "```\n"
         + "Si tu as une idée d'amélioration, n'hésite pas à en parler à son créateur , il étudiera ta demande :wink:")
     })
@@ -65,35 +66,35 @@ bot.on('ready', function () {
 })
 
 bot.on('message', async function(message){
-  if (message.content.startsWith(commandes[0])) {
+  if (message.content.startsWith(commandes.prout)) {
     prout.doProut(message);
-  } else if (message.content === commandes[1]){
+  } else if (message.content === commandes.chaton){
     message.channel.send(gifs.doChaton(message))
-  }else if (message.content === commandes[2]){
+  }else if (message.content === commandes.chiot){
     message.channel.send(gifs.doChiot(message))
-  }else if(message.content === commandes[3]){
+  }else if(message.content === commandes.ping){
     const m = await message.channel.send("Ping en calcul... \nVeuillez patienter.");
     m.edit(`Le ping est de ${m.createdTimestamp - message.createdTimestamp}ms. `);
-  }else if(message.content === commandes[4]){
+  }else if(message.content === commandes.pong){
     message.reply("Tu as cru quoi ? Que j'allais répondre ping ?");
-  }else if(message.content.startsWith(commandes[5])){
+  }else if(message.content.startsWith(commandes.hug)){
     var hug = gifs.doHug(message);
     message.channel.send(hug[0], hug[1])
-  }else if(message.content === commandes[6]){
+  }else if(message.content === commandes.roulette){
     message.reply(roulette.jeuDeLaRoulette(message));
-  }else if(message.content.startsWith(commandes[7])){
+  }else if(message.content.startsWith(commandes.record)){
     roulette.getRecord(message);
   }else if(message.content === "$help"){
     sendHelp(message.author);
-  }else if(message.content.startsWith(commandes[8])){
+  }else if(message.content.startsWith(commandes.pendu)){
     pendu.start(message);
-  }else if(message.content.startsWith(commandes[9])){
+  }else if(message.content.startsWith(commandes.lettre)){
     pendu.testeLettre(message);
-  }else if(message.content.startsWith(commandes[10])){
+  }else if(message.content.startsWith(commandes.mot)){
     pendu.testeMot(message);
-  }else if(message.content.startsWith(commandes[11])){
+  }else if(message.content.startsWith(commandes.stopPendu)){
     message.channel.send(pendu.endGame(message));
-  }else if(message.content.startsWith(commandes[12])){
+  }else if(message.content.startsWith(commandes.pinkie)){
     message.channel.send(message.author + ", voici une Pinkie Pie rien que pour toi :kissing:", gifs.doPinkie(message));
   }else if(message.content.startsWith("$test")){
     test(message);
