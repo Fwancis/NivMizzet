@@ -97,6 +97,8 @@ bot.on('message', async function(message){
     message.channel.send(message.author + ", voici une Pinkie Pie rien que pour toi :kissing:", gifs.doPinkie(message));
   }else if(message.content.startsWith("$test")){
     test(message);
+  }else if (message.content === "$formule"){
+    message.channel.send("(Z->)90° - (E-N'W)90°t = 1")
   }else if(message.content.startsWith("$")){
     message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
   }
