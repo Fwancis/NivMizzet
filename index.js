@@ -39,6 +39,9 @@ var sendHelp = function(destinataire){
         + commandes.hug + " {mention} => \"permet de faire un câlin à {mention}. \"\n"
         + commandes.gif + " {type de gif}=> \"permet d'afficher un gif du type indiqué.\"\n"
         + commandes.gifTypes + " => \"permet d'afficher la liste des types de gif actuellement disponibles.\"\n"
+        + "```\n"
+      );
+      channel.send("```"
         + "\n--------------------------------------------- JEUX ---------------------------------------------\n"
         + "//------------------------Roulette russe------------------------\n"
         + commandes.roulette + " => \"permet de jouer à la roulette russe.\"\n"
@@ -52,6 +55,9 @@ dans la base de données, il sera pris au hasard.\"\n"
         + commandes.lettre + " => \"permet de tester une lettre au pendu.\"\n"
         + commandes.mot + " => \"permet de tester un mot au pendu.\"\n"
         + commandes.stopPendu + " => \"permet d'arreter la partie de pendu en cours.\"\n"
+        + "```\n"
+      );
+      channel.send("```"
         + "\n--------------------------------------------- AUTRES ---------------------------------------------\n"
         + commandes.ping + " => \"renvoie le ping entre le bot et l'utilisateur.\"\n"
         + commandes.pong + " => \"surprise !!\"\n"
@@ -59,7 +65,7 @@ dans la base de données, il sera pris au hasard.\"\n"
         + commandes.prout + " {mention} => \"permet de dire à {mention} qu'elle pue.\"\n"
         + commandes.prout + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent.\"\n"
         + "```\n"
-        + "Si tu as une idée d'amélioration, n'hésite pas à en parler au créateur du bot, il étudiera ta demande. :wink:")
+        + "Si tu as une idée d'amélioration, n'hésite pas à en parler à mon créateur, il étudiera ta demande. :wink:")
     })
 }
 
