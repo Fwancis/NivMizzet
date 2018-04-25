@@ -41,7 +41,7 @@ var sendHelp = function(destinataire){
         + commandes.gifTypes + " => \"permet d'afficher la liste des types de gif actuellement disponibles.\"\n"
         + "```\n"
       );
-      channel.send("```"
+      channel.send("```js"
         + "\n--------------------------------------------- JEUX ---------------------------------------------\n"
         + "//------------------------Roulette russe------------------------\n"
         + commandes.roulette + " => \"permet de jouer à la roulette russe.\"\n"
@@ -57,7 +57,7 @@ dans la base de données, il sera pris au hasard.\"\n"
         + commandes.stopPendu + " => \"permet d'arreter la partie de pendu en cours.\"\n"
         + "```\n"
       );
-      channel.send("```"
+      channel.send("```js"
         + "\n--------------------------------------------- AUTRES ---------------------------------------------\n"
         + commandes.ping + " => \"renvoie le ping entre le bot et l'utilisateur.\"\n"
         + commandes.pong + " => \"surprise !!\"\n"
