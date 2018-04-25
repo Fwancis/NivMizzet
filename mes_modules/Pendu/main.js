@@ -94,9 +94,9 @@ var testeLettre = function(message){
 	var messageSplite = message.content.split(" ");
 	var etatDuJeu = ""
 	if (messageSplite.length < 2){
-		etatDuJeu += "Il faut une lettre à tester."
+		etatDuJeu += "Il faut une lettre à tester.\n"
 	}else if(messageSplite.length > 2){
-		etatDuJeu += "On ne peut tester qu'une lettre à la fois."
+		etatDuJeu += "On ne peut tester qu'une lettre à la fois.\n"
 	}else{
 		var lettreATester = message.content.split(" ")[1];
 		if (util.tableauContient(tableaux.alphabet, lettreATester.toLowerCase())){
@@ -104,7 +104,7 @@ var testeLettre = function(message){
 			etatDuJeu +=verifie[0]
 			message.react(verifie[1]?"✅":"❌")
 		}else{
-			etatDuJeu += "On ne peut tester que des lettres."
+			etatDuJeu += "On ne peut tester que des lettres.\n"
 		}
 	}
 	etatDuJeu += getEtatDuJeu(message);
@@ -157,9 +157,11 @@ var testeMot = function(message){
 	var messageSplite = message.content.split(" ");
 	var reponse = "";
 	if (messageSplite.length < 2){
-		reponse += "Il faut un mot à tester."
+		reponse += "Il faut un mot à tester.\n"
+		reponse += getEtatDuJeu(message);
 	}else if(messageSplite.length > 2){
-	  reponse += "On ne peut tester qu'un mot à la fois."
+	  reponse += "On ne peut tester qu'un mot à la fois.\n"
+		reponse += getEtatDuJeu(message);
 	}else{
 		var motATester = message.content.split(" ")[1];
 		if (motATrouver == motATester){

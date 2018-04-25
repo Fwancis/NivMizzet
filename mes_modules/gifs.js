@@ -23,18 +23,18 @@ var doHug = function(message){
   }else{
     reponse = "désolé, mais la commande **$hug** s'emploie **$hug {mention}**.";
   }
-  return [reponse, getGif("hug")];
+  return [reponse, getGifFromfolder("hug")];
 }
 
 var doChaton = function(message){
-  return getGif("chaton");
+  return getGifFromfolder("chaton");
 }
 
 var doChiot = function(message){
-  return getGif("chiot");
+  return getGifFromfolder("chiot");
 }
 
-var getGif = function(gifToGet){
+var getGifFromfolder = function(gifToGet){
   var gifFolder = "./mes_modules/gifs/" + gifToGet + "/";
   var tabGifs = fs.readdirSync(gifFolder);
   var gif = gifFolder + util.valeurAleatoireDuTableau(tabGifs);
@@ -42,13 +42,43 @@ var getGif = function(gifToGet){
   return attachment;
 }
 
+var getGifTypes = function(){
+  var gifTypeFolder = "./mes_modules/gifs/";
+  var tabTypesGif = fs.readdirSync(gifTypeFolder);
+  var reponse = "Les types de gif sont : \n```";
+  reponse += getTabElements(tabTypesGif) + "```";
+  return reponse;
+}
+
+var getTabElements = function(tab){
+  var reponse = "";
+  for (var i = 0; i < tab.length; i++) {
+    reponse += tab[i] + "\n";
+  }
+  return reponse;
+}
+
+var getGif = function(message){
+  var args = message.content.split(' ');
+  if (args.length != 2){
+    return "Désolé " + message.author + ", mais la commande **$gif** s'emploie avec le type de gif que tu désires.";
+  }
+  try{
+    return getGifFromfolder(args[1]);
+  }catch(e){
+    return "Aucun gif n'a été trouvé avec cette valeur."
+  }
+}
+
 var doPinkie = function(message){
-  return getGif("Pinkie");
+  return getGifFromfolder("Pinkie");
 }
 
 module.exports = {
   doHug: doHug,
   doChaton: doChaton,
   doChiot: doChiot,
-  doPinkie: doPinkie
+  doPinkie: doPinkie,
+  getGif: getGif,
+  getGifTypes: getGifTypes
 }

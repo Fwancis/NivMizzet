@@ -23,7 +23,8 @@ var commandes = {
   "lettre": "$lettre",
   "mot": "$mot",
   "stopPendu": "$stopPendu",
-  "pinkie": "$pinkie"
+  "gif": "$gif",
+  "gifTypes": "$gifTypes"
 }
 
 
@@ -33,31 +34,32 @@ var sendHelp = function(destinataire){
         + "```php\n"
         + "$help => permet de recevoir les commandes disponibles en mp \n"
         + "\n--------------------------------------------- GIFS ---------------------------------------------\n"
-        + commandes.chaton + " => \"permet d'afficher le gif d'un chaton \"\n"
-        + commandes.chiot + " => \"permet d'affichet le gif d'un chiot \"\n"
-        + commandes.hug + " {mention} => \"permet de faire un câlin à {mention} \"\n"
+        + commandes.chaton + " => \"permet d'afficher le gif d'un chaton. \"\n"
+        + commandes.chiot + " => \"permet d'affichet le gif d'un chiot. \"\n"
+        + commandes.hug + " {mention} => \"permet de faire un câlin à {mention}. \"\n"
+        + commandes.gif + " {type de gif}=> \"permet d'afficher un gif du type indiqué.\"\n"
+        + commandes.gifTypes + " => \"permet d'afficher la liste des types de gif actuellement disponibles.\"\n"
         + "\n--------------------------------------------- JEUX ---------------------------------------------\n"
         + "//------------------------Roulette russe------------------------\n"
-        + commandes.roulette + " => \"permet de jouer à la roulette russe\"\n"
-        + commandes.record + " => \"permet de connaitre son score à la roulette russe\"\n"
-        + commandes.record + " {mention} => \"permet de connaitre le score de {mention} à la roulette russe\"\n"
+        + commandes.roulette + " => \"permet de jouer à la roulette russe.\"\n"
+        + commandes.record + " => \"permet de connaitre son score à la roulette russe.\"\n"
+        + commandes.record + " {mention} => \"permet de connaitre le score de {mention} à la roulette russe.\"\n"
         + "//------------------------Pendu------------------------\n"
-        + commandes.pendu + " => \"permet de lancer une partie de pendu\"\n"
+        + commandes.pendu + " => \"permet de lancer une partie de pendu.\"\n"
         + commandes.pendu + " {nombre} => \"permet de lancer une partie de pendu à {nombre} lettres dans le mot. \
 Si {nombre} n'est pas un nombre, ou si il est inférieur ou supérieur au nombre de lettres des mots \
 dans la base de données, il sera pris au hasard.\"\n"
-        + commandes.lettre + " => \"permet de tester une lettre au pendu\"\n"
-        + commandes.mot + " => \"permet de tester un mot au pendu\"\n"
-        + commandes.stopPendu + " => \"permet d'arreter la partie de pendu en cours\"\n"
+        + commandes.lettre + " => \"permet de tester une lettre au pendu.\"\n"
+        + commandes.mot + " => \"permet de tester un mot au pendu.\"\n"
+        + commandes.stopPendu + " => \"permet d'arreter la partie de pendu en cours.\"\n"
         + "\n--------------------------------------------- AUTRES ---------------------------------------------\n"
-        + commandes.ping + " => \"renvoie le ping entre le bot et l'utilisateur\"\n"
-        + commandes.pong + " => \"surprise\"\n"
-        + commandes.pinkie + " => \"permet d'afficher un gif de Pinkie Pie\"\n"
-        + commandes.prout + " => \"permet de te dire que tu pues\"\n"
-        + commandes.prout + " {mention} => \"permet de dire à {mention} qu'elle pue\"\n"
-        + commandes.prout + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent\"\n"
+        + commandes.ping + " => \"renvoie le ping entre le bot et l'utilisateur.\"\n"
+        + commandes.pong + " => \"surprise !!\"\n"
+        + commandes.prout + " => \"permet de te dire que tu pues.\"\n"
+        + commandes.prout + " {mention} => \"permet de dire à {mention} qu'elle pue.\"\n"
+        + commandes.prout + " {mentions} => \"permet de dire à chaque {mention} de {mentions} qu'elles puent.\"\n"
         + "```\n"
-        + "Si tu as une idée d'amélioration, n'hésite pas à en parler à son créateur , il étudiera ta demande :wink:")
+        + "Si tu as une idée d'amélioration, n'hésite pas à en parler au créateur du bot, il étudiera ta demande. :wink:")
     })
 }
 
@@ -66,42 +68,65 @@ bot.on('ready', function () {
 })
 
 bot.on('message', async function(message){
-  if (message.content.startsWith(commandes.prout)) {
-    prout.doProut(message);
-  } else if (message.content === commandes.chaton){
-    message.channel.send(gifs.doChaton(message))
-  }else if (message.content === commandes.chiot){
-    message.channel.send(gifs.doChiot(message))
-  }else if(message.content === commandes.ping){
-    const m = await message.channel.send("Ping en calcul... \nVeuillez patienter.");
-    m.edit(`Le ping est de ${m.createdTimestamp - message.createdTimestamp}ms. `);
-  }else if(message.content === commandes.pong){
-    message.reply("Tu as cru quoi ? Que j'allais répondre ping ?");
-  }else if(message.content.startsWith(commandes.hug)){
-    var hug = gifs.doHug(message);
-    message.channel.send(hug[0], hug[1])
-  }else if(message.content === commandes.roulette){
-    message.reply(roulette.jeuDeLaRoulette(message));
-  }else if(message.content.startsWith(commandes.record)){
-    roulette.getRecord(message);
-  }else if(message.content === "$help"){
-    sendHelp(message.author);
-  }else if(message.content.startsWith(commandes.pendu)){
-    pendu.start(message);
-  }else if(message.content.startsWith(commandes.lettre)){
-    pendu.testeLettre(message);
-  }else if(message.content.startsWith(commandes.mot)){
-    pendu.testeMot(message);
-  }else if(message.content.startsWith(commandes.stopPendu)){
-    message.channel.send(pendu.endGame(message));
-  }else if(message.content.startsWith(commandes.pinkie)){
-    message.channel.send(message.author + ", voici une Pinkie Pie rien que pour toi :kissing:", gifs.doPinkie(message));
-  }else if(message.content.startsWith("$test")){
-    test(message);
-  }else if (message.content === "$formule"){
-    message.channel.send("(Z->)90° - (E-N'W)90°t = 1")
-  }else if(message.content.startsWith("$")){
-    message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
+  var commande = message.content.split(" ")[0];
+  switch (commande){
+    case commandes.prout:
+      prout.doProut(message);
+      break;
+    case commandes.chaton:
+      message.channel.send(gifs.doChaton(message))
+      break;
+    case commandes.chiot:
+      message.channel.send(gifs.doChiot(message))
+      break;
+    case commandes.ping:
+      const m = await message.channel.send("Ping en calcul... \nVeuillez patienter.");
+      m.edit(`Le ping est de ${m.createdTimestamp - message.createdTimestamp}ms. `);
+      break;
+    case commandes.pong:
+      message.reply("Tu as cru quoi ? Que j'allais répondre ping ?");
+      break;
+    case commandes.hug:
+      var hug = gifs.doHug(message);
+      message.channel.send(hug[0], hug[1])
+      break;
+    case commandes.roulette:
+      message.reply(roulette.jeuDeLaRoulette(message));
+      break;
+    case commandes.record:
+      roulette.getRecord(message);
+      break;
+    case commandes.pendu:
+      pendu.start(message);
+      break;
+    case commandes.lettre:
+      pendu.testeLettre(message);
+      break;
+    case commandes.mot:
+      pendu.testeMot(message);
+      break;
+    case commandes.stopPendu:
+      message.channel.send(pendu.endGame(message));
+      break;
+    case commandes.gif:
+      message.channel.send(gifs.getGif(message))
+      break;
+    case commandes.gifTypes:
+      message.channel.send(gifs.getGifTypes())
+      break;
+    case "$formule":
+      message.channel.send("(Z->)90° - (E-N'W)90°t = 1")
+      break;
+    case "$help":
+      sendHelp(message.author);
+      break;
+    case "$test":
+      break;
+    default:
+      if(message.content.startsWith("$")){
+        message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
+      }
+      break;
   }
 })
 
