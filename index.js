@@ -126,6 +126,9 @@ bot.on('message', async function(message){
     case "$help":
       sendHelp(message.author);
       break;
+    case "$lien":
+      message.author.createDM().then(function(channel){channel.send("https://discordapp.com/oauth2/authorize?client_id=412637005034553344&scope=bot&permissions=8")});
+      break;
     case "$test":
       break;
     default:
@@ -147,10 +150,35 @@ bot.on('guildMemberAdd', function(member){
 })
 
 bot.on('emojiCreate', function(emoji){
-  var guildGeneral = util.getTextChannelByName(emoji.guild, "general");
-  guildGeneral.send("L'emoji :" + emoji.name +": a vu le jour, soyez gentils avec lui :)");
+  try{
+    var guildGeneral = util.getTextChannelByName(emoji.guild, "general");
+    guildGeneral.send("L'emoji :" + emoji.name +": a vu le jour, soyez gentils avec lui :)");
+  }catch(e){}
 })
 
+bot.on("guildCreate", function(guild){
+  guild.createRole({
+    name: 'BANG'
+  })
+  .then(role => console.log(`Created new role with name ${role.name}`))
+  .catch(console.error)
+  console.log("Je viens de rejoindre " + guild.name + ".\n"
+    +"Je sers désormais " + bot.guilds.array().length + " serveurs.");
+})
+
+bot.on("ready", function(){
+  console.log("Je suis connecté à " + bot.guilds.array().length + " serveurs !")
+  afficheListeDesGuildes();
+})
+
+var afficheListeDesGuildes = function(){
+  var tabGuilds = bot.guilds.array();
+  var res = "Je suis dans les serveurs nommées : ";
+  for (var i = 0; i < tabGuilds.length; i++) {
+    res += "\n" + tabGuilds[i];
+  }
+  console.log(res);
+}
 
 /*
 bot.on('typingStop', function(channel, user){
@@ -165,4 +193,3 @@ bot.on('messageUpdate', function(oldMessage, newMessage){
 */
 
 bot.login('NDEyNjM3MDA1MDM0NTUzMzQ0.DWNY8Q.COIHm0iqTU9X57JKyp7DFPwKzEY')
-console.log("Je suis connecté !")

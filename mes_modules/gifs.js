@@ -61,7 +61,12 @@ var getTabElements = function(tab){
 var getGif = function(message){
   var args = message.content.split(' ');
   if (args.length != 2){
-    return "Désolé " + message.author + ", mais la commande **$gif** s'emploie avec le type de gif que tu désires.";
+    return "Désolé " + message.author + ", mais la commande **$gif** s'emploie "
+    + "avec le type de gif que tu désires. Pour avoir la liste des types "
+    + "actuels, utilise ***$gifTypes***.";
+  }
+  if (args[1].includes("..")){
+    return "Il est formellement interdit d'explorer les fichiers à l'aide de cette commande, utilise un type préexistant !!";
   }
   try{
     return getGifFromfolder(args[1]);

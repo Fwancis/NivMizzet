@@ -6,18 +6,22 @@ var actuels = {};
 
 dbRoulette.initOrOpenDB();
 
-var mute = function(user){
-  var roles = user.roles;
+var mute = function(member){
+  var roles = member.roles;
   var debutMute = Date.now();
-  user.setMute(true, "BANG");
+  member.setMute(true, "BANG");
+  var memberName = member.nickname!=undefined?member.nickname:member.user.username;
+  var guild = member.guild;
+  console.log("Fin de la série de roulette de " + memberName  + " dans le serveur " + guild);
   try{
-    user.setRoles(["407574301525540874"], "BANG");
+    member.setRoles([util.getGuildRoleByName(guild, "BANG")], "BANG");
   }catch(e){
-    user.setRoles([], "BANG");
+    member.setRoles([], "BANG");
   }finally{
     setTimeout(function() {
-      user.setMute(false, "Fin du BANG");
-      user.setRoles(roles, "Fin du BANG");
+      console.log("J'ai rendu les roles de " + memberName  + " dans le serveur " + guild);
+      member.setMute(false, "Fin du BANG");
+      member.setRoles(roles, "Fin du BANG");
     }, 30000);
   }
 }
@@ -38,6 +42,8 @@ var jeuDeLaRoulette = function(message){
     mute(member);
   }else{
     actuels[""+member.id] = actuels[""+member.id]==undefined?1:actuels[""+member.id]+1;
+    var memberName = member.nickname!=undefined?member.nickname:member.user.username;
+    console.log("Série de roulette de " + memberName + " dans le serveur " + member.guild + " en cours. " + actuels[""+member.id]);
     reponse = "Click";
   }
   return reponse

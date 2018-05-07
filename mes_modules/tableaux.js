@@ -110,7 +110,12 @@ var listeDeMots = [
     "tige", "tilt", "tirs", "tocs", "toge", "toit", "tole", "tome", "tons", "topo",
     "tops", "tors", "tort", "tour", "tous", "tout", "toux", "trac", "tram", "tres",
     "trio", "trip", "tris", "troc", "trop", "trot", "trou", "truc", "tsar", "tuba",
-    "tube", "tuer", "turc", "type", "typo"
+    "tube", "tuer", "turc", "type", "typo",
+    "unes", "unir", "uree", "urge", "urne", "user",
+    "vain", "vals", "vamp", "vars", "vase", "veau", "vecu", "velo", "vent", "vers",
+    "vert", "veto", "veuf", "vice", "vide", "vies", "vifs", "vile", "vils", "vins",
+    "vioc", "viol", "vite", "vive", "voeu", "voie", "voir", "voix", "vols", "volt",
+    "vomi", "vote", "vous", "vrac", "vrai"
 ];
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",

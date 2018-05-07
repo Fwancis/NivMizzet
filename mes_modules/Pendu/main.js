@@ -16,6 +16,7 @@ var start = function(message){
 		etatDuJeu += getEtatDuJeu(message);
 	}else{
 		initGame(message);
+		console.log("Une partie de pendu a commencé dans le serveur " + message.guild + ". Le mot à trouver est : " + motATrouver);
 		etatDuJeu += "Le mot à trouver a été défini. Il contient " + motATrouver.length + " lettres."
 		etatDuJeu += getEtatDuJeu(message);
 	}
@@ -78,6 +79,7 @@ var endGame = function(message){
 	if (!jeuACommence()){
 		return "La partie n'a pas encore commencé.";
 	}
+	console.log("Fin du pendu du serveur " + message.guild + ".");
 	var reponse = "La partie de pendu est terminée, le mot était " + affichage.getMot(motATrouver) + ", merci d'avoir joué :cookie:";
 	motATrouver = undefined;
 	actuellementTrouve = undefined;

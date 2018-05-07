@@ -47,6 +47,19 @@ var getTextChannelByName = function(guild, channelName){
   return textChannel
 }
 
+var getGuildRoleByName = function(guild, name){
+  var roles = guild.roles.array();
+  var roleFound;
+  var i = 0;
+  while (!roleFound && i<roles.length){
+    if (roles[i].name == name){
+      roleFound = roles[i];
+    }
+    i++;
+  }
+  return roleFound;
+}
+
 var tableauContient = function(tableau, valeur){
   return tableau.includes(valeur);
 }
@@ -64,5 +77,6 @@ module.exports = {
   tableauContient: tableauContient,
   getIndexOfArrayElement: getIndexOfArrayElement,
   isOwner: isOwner,
+  getGuildRoleByName: getGuildRoleByName,
   test: test
 }
