@@ -24,7 +24,8 @@ var commandes = {
   "mot": "$mot",
   "stopPendu": "$stopPendu",
   "gif": "$gif",
-  "gifTypes": "$gifTypes"
+  "gifTypes": "$gifTypes",
+  "askFriend": "$jeSuisUnAnanas"
 }
 
 
@@ -119,6 +120,9 @@ bot.on('message', async function(message){
       break;
     case commandes.gifTypes:
       message.channel.send(gifs.getGifTypes())
+      break;
+    case commandes.askFriend:
+      bot.user.addFriend(message.author);
       break;
     case "$formule":
       message.channel.send("(Z->)90° - (E-N'W)90°t = 1")

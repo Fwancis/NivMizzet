@@ -1,13 +1,14 @@
 const affichage = require('./affichage.js');
 const tableaux = require('../tableaux.js');
 const util = require('../utilitaire.js');
+const ldm = require('./lecteur_de_mot.js');
 
 var motATrouver;
 var actuellementTrouve;
 var lettresDemandees = [];
 
-const nbLettresMin = 3;
-const nbLettresMax = 4;
+const nbLettresMin = ldm.nbLettresMin;
+const nbLettresMax = ldm.nbLettresMax;
 
 var start = function(message){
 	var etatDuJeu = "";
@@ -47,7 +48,7 @@ var startGame = function(nbLettres){
 
 var chercheMot = function(nbLettres){
 	do{
-		motATrouver = util.valeurAleatoireDuTableau(tableaux.listeDeMots);
+		motATrouver = util.valeurAleatoireDuTableau(ldm.dicoTab);
 	}while (nbLettres != undefined && motATrouver.length != nbLettres)
 }
 

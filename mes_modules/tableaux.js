@@ -4,6 +4,10 @@ var base = [
 ]
 
 var listeDeMots = [
+    "ah", "an", "as", "ca", "ce", "ci", "de", "do", "du", "en",
+    "et", "fa", "go", "il", "je", "la", "le", "ma", "me", "mi",
+    "ne", "on", "or", "os", "ou", "pi", "re", "sa", "se", "si",
+    "ta", "te", "un",
     "ail", "axe",
     "bar", "boa", "ble", "bel", "but", "bus", "bol",
     "cil", "ces", "cle",
@@ -115,7 +119,9 @@ var listeDeMots = [
     "vain", "vals", "vamp", "vars", "vase", "veau", "vecu", "velo", "vent", "vers",
     "vert", "veto", "veuf", "vice", "vide", "vies", "vifs", "vile", "vils", "vins",
     "vioc", "viol", "vite", "vive", "voeu", "voie", "voir", "voix", "vols", "volt",
-    "vomi", "vote", "vous", "vrac", "vrai"
+    "vomi", "vote", "vous", "vrac", "vrai",
+    "yack", "yang", "yens", "yeux", "ying", "yoga",
+    "zebu", "zele", "zero", "zinc", "zizi", "zone", "zoom", "zoos"
 ];
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
