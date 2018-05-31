@@ -7,18 +7,21 @@ var motATrouver;
 var actuellementTrouve;
 var lettresDemandees = [];
 
+var nbErreurs;
+const nbErreursPossibles = 8;
+
 const nbLettresMin = ldm.nbLettresMin;
 const nbLettresMax = ldm.nbLettresMax;
 
 var start = function(message){
 	var etatDuJeu = "";
 	if (jeuACommence()){
-		etatDuJeu += "Il y a déjà un mot à trouver";
+		etatDuJeu += "Il y a déjà un mot à trouver.\n";
 		etatDuJeu += getEtatDuJeu(message);
 	}else{
 		initGame(message);
 		console.log("Une partie de pendu a commencé dans le serveur " + message.guild + ". Le mot à trouver est : " + motATrouver);
-		etatDuJeu += "Le mot à trouver a été défini. Il contient " + motATrouver.length + " lettres."
+		etatDuJeu += "Le mot à trouver a été défini. Il contient " + motATrouver.length + " lettres.\n"
 		etatDuJeu += getEtatDuJeu(message);
 	}
 	message.channel.send(etatDuJeu);
@@ -40,6 +43,7 @@ var initGame = function(message){
 var startGame = function(nbLettres){
 	chercheMot(nbLettres);
 	actuellementTrouve = []
+  nbErreurs = 0;
 	for (var i = 0; i < motATrouver.length; i++) {
 		actuellementTrouve[i] = " ";
 	}
@@ -47,9 +51,11 @@ var startGame = function(nbLettres){
 }
 
 var chercheMot = function(nbLettres){
+	var nbBoucles = 900000;
 	do{
-		motATrouver = util.valeurAleatoireDuTableau(tableaux.listeDeMots);
-	}while (nbLettres != undefined && motATrouver.length != nbLettres)
+		motATrouver = util.valeurAleatoireDuTableau(ldm.dicoTab);
+    nbBoucles--;
+	}while (nbLettres != undefined && motATrouver.length != nbLettres && nbBoucles>0)
 }
 
 var getEtatDuJeu = function(message){
@@ -58,6 +64,7 @@ var getEtatDuJeu = function(message){
 		res+="Le jeu n'a pas commencé";
 		res+= "Pour démarrer une partie de pendu, utilisez **$pendu** ou **$pendu {nombreDeLettres}**.";
 	}else{
+    res+="Nombre d'erreurs : "+nbErreurs+"/"+nbErreursPossibles+"\n";
 		res+=getActuel(message)+"\n";
 		res+=getLettresDemandees(message)+"\n";
 		res+= "Pour jouer au pendu, utilisez **$lettre {lettre}** pour tester une lettre et **$mot {mot}** pour tester un mot. ";
@@ -110,8 +117,18 @@ var testeLettre = function(message){
 			etatDuJeu += "On ne peut tester que des lettres.\n"
 		}
 	}
+  if (nbErreurs == nbErreursPossibles){
+    message.channel.send(perdu(message));
+		return 0;
+  }
 	etatDuJeu += getEtatDuJeu(message);
 	message.channel.send(etatDuJeu);
+}
+
+var perdu = function (message){
+  var reponse = "Perdu, tu réussiras peut-être la prochaine fois.\n";
+	reponse+=endGame(message);
+  return reponse;
 }
 
 var verifieLettre = function(lettre){
@@ -119,7 +136,7 @@ var verifieLettre = function(lettre){
 	var resultatBool;
 	var lettrelc = lettre.toLowerCase();
 	if (util.tableauContient(lettresDemandees, lettrelc)){
-		return ["La lettre a déjà été demandée", false];
+		return ["La lettre a déjà été demandée\n", false];
 	}
 	lettresDemandees.push(lettrelc);
 	if (laLettreEstDansLeMotATrouver(lettrelc)) {
@@ -129,6 +146,7 @@ var verifieLettre = function(lettre){
 	}else{
 		resultatString = "La lettre n'est pas dans le mot.\n";
 		resultatBool = false;
+    nbErreurs++;
 	}
 	return [resultatString, resultatBool];
 }
@@ -171,6 +189,11 @@ var testeMot = function(message){
 			reponse += "Félicitation " + message.author + ", tu as trouvé le mot !!\n";
 			reponse += endGame(message);
 		}else{
+      nbErreurs++;
+      if (nbErreurs == nbErreursPossibles){
+        message.channel.send(perdu(message));
+		    return 0;
+      }
 			reponse += "Non " + message.author + ", ce n'est pas le bon mot.\n";
 			reponse += getEtatDuJeu(message);
 		}

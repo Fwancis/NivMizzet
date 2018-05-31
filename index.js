@@ -25,7 +25,8 @@ var commandes = {
   "stopPendu": "$stopPendu",
   "gif": "$gif",
   "gifTypes": "$gifTypes",
-  "askFriend": "$jeSuisUnAnanas"
+  "lien": "$lien",
+  "aide": "$help"
 }
 
 
@@ -33,7 +34,8 @@ var sendHelp = function(destinataire){
     destinataire.createDM().then(function(channel){
       channel.send("Salut, voici mes commandes actuellement disponibles :\n"
         + "```php\n"
-        + "$help => permet de recevoir les commandes disponibles en mp \n"
+        + commandes.aide + " => permet de recevoir les commandes disponibles en mp \n"
+        + commandes.lien + " => permet d'avoir le lien permettant d'inviter le bot \n"
         + "\n--------------------------------------------- GIFS ---------------------------------------------\n"
         + commandes.chaton + " => \"permet d'afficher le gif d'un chaton. \"/!\\Va être supprimé !! Utilisez \"$gif chaton\" pour le même effet/!\\\n"
         + commandes.chiot + " => \"permet d'affichet le gif d'un chiot. \"/!\\Va être supprimé !! Utilisez \"$gif chiot\" pour le même effet/!\\\n"
@@ -71,7 +73,7 @@ dans la base de données, il sera pris au hasard.\"\n"
 }
 
 bot.on('ready', function () {
-  bot.user.setActivity("$help")
+  bot.user.setActivity(commandes.aide)
 })
 
 bot.on('message', async function(message){
@@ -81,10 +83,12 @@ bot.on('message', async function(message){
       prout.doProut(message);
       break;
     case commandes.chaton:
-      message.channel.send(gifs.doChaton(message))
+      var chaton = gifs.doChaton(message);
+      message.channel.send(chaton[0], chaton[1]);
       break;
     case commandes.chiot:
-      message.channel.send(gifs.doChiot(message))
+      var chiot = gifs.doChiot(message);
+      message.channel.send(chiot[0], chiot[1]);
       break;
     case commandes.ping:
       const m = await message.channel.send("Ping en calcul... \nVeuillez patienter.");
@@ -95,7 +99,7 @@ bot.on('message', async function(message){
       break;
     case commandes.hug:
       var hug = gifs.doHug(message);
-      message.channel.send(hug[0], hug[1])
+      writeHug(hug, message);
       break;
     case commandes.roulette:
       message.reply(roulette.jeuDeLaRoulette(message));
@@ -121,27 +125,31 @@ bot.on('message', async function(message){
     case commandes.gifTypes:
       message.channel.send(gifs.getGifTypes())
       break;
-    case commandes.askFriend:
-      bot.user.addFriend(message.author);
-      break;
     case "$formule":
       message.channel.send("(Z->)90° - (E-N'W)90°t = 1")
       break;
-    case "$help":
+    case commandes.aide:
       sendHelp(message.author);
       break;
-    case "$lien":
+    case commandes.lien:
       message.author.createDM().then(function(channel){channel.send("https://discordapp.com/oauth2/authorize?client_id=412637005034553344&scope=bot&permissions=8")});
       break;
     case "$test":
       break;
     default:
       if(message.content.startsWith("$")){
-        message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **$help** pour connaitre mes très (peu) nombreuses commandes.")
+        message.channel.send("Désolé chouchou, je ne reconnais pas cette commande, tape **"+commandes.aide+"** pour connaitre mes très (peu) nombreuses commandes.")
       }
       break;
   }
 })
+
+var writeHug = function (hug, message){
+  if(typeof hug != "string" )
+    message.channel.send(hug[0], hug[1])
+  else 
+    message.channel.send(hug)
+}
 
 var test = function(message){
   util.test(message, Discord);

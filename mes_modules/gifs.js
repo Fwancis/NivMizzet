@@ -21,17 +21,18 @@ var doHug = function(message){
   }else if (notifs.length > 1){
     reponse = getHugs(notifs, message.author);
   }else{
-    reponse = "désolé, mais la commande **$hug** s'emploie **$hug {mention}**.";
+    reponse = "Désolé, mais la commande **$hug** s'emploie **$hug {mention}**.";
+    return reponse;
   }
   return [reponse, getGifFromfolder("hug")];
 }
 
 var doChaton = function(message){
-  return getGifFromfolder("chaton");
+  return ["Attention, cette commande va disparaitre, utilisez **$gif chaton** pour le même résultat.", getGifFromfolder("chaton")];
 }
 
 var doChiot = function(message){
-  return getGifFromfolder("chiot");
+  return ["Attention, cette commande va disparaitre, utilisez **$gif chiot** pour le même résultat.", getGifFromfolder("chiot")];
 }
 
 var getGifFromfolder = function(gifToGet){
