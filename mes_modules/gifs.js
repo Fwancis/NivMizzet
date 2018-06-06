@@ -33,11 +33,11 @@ var doKiss = function(message){
   var args = message.content.split(' ');
   var notifs = util.getArgsNotifs(args);
   if (notifs.length == 1){
-    reponse = notifs[0] + ", " + message.author + " te fait un gros câlin !! \n";
+    reponse = notifs[0] + ", " + message.author + " te fait un gros bisou !! \n";
   }else if (notifs.length > 1){
     reponse = getKisses(notifs, message.author);
   }else{
-    reponse = "Désolé, mais la commande **$hug** s'emploie **$hug {mention}**.";
+    reponse = "Désolé, mais la commande **$kiss** s'emploie **$kiss {mention}**.";
     return reponse;
   }
   return [reponse, getGifFromfolder("kiss")];
@@ -98,6 +98,7 @@ var doPinkie = function(message){
 
 module.exports = {
   doHug: doHug,
+  doKiss: doKiss,
   doChaton: doChaton,
   doChiot: doChiot,
   doPinkie: doPinkie,

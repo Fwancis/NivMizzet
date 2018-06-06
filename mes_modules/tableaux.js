@@ -44,6 +44,6 @@ et l’herbe coupée récemment ramassée que puis-je pour <@", "> ?"],
 ]
 
 module.exports = {
-  messagesAccueil: messagesAccueil,
-  listeDeMots: listeDeMots
+  alphabet: alphabet,
+  messagesAccueil: messagesAccueil
 }
