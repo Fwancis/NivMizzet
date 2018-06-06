@@ -11,22 +11,23 @@ const idCreateur = "219911765134278667"
 var channels = bot.channels;
 
 var commandes = {
-  "prout": "$prout",
+  "aide": "$help",
   "chaton": "$chaton",
   "chiot": "$chiot",
-  "ping": "$ping",
-  "pong": "$pong",
-  "hug": "$hug",
-  "roulette": "$roulette",
-  "record": "$record",
-  "pendu": "$pendu",
-  "lettre": "$lettre",
-  "mot": "$mot",
-  "stopPendu": "$stopPendu",
   "gif": "$gif",
   "gifTypes": "$gifTypes",
+  "hug": "$hug",
+  "kiss": "$kiss",
+  "lettre": "$lettre",
   "lien": "$lien",
-  "aide": "$help"
+  "mot": "$mot",
+  "pendu": "$pendu",
+  "ping": "$ping",
+  "pong": "$pong",
+  "prout": "$prout",
+  "record": "$record",
+  "roulette": "$roulette",
+  "stopPendu": "$stopPendu"
 }
 
 
@@ -39,9 +40,12 @@ var sendHelp = function(destinataire){
         + "\n--------------------------------------------- GIFS ---------------------------------------------\n"
         + commandes.chaton + " => \"permet d'afficher le gif d'un chaton. \"/!\\Va être supprimé !! Utilisez \"$gif chaton\" pour le même effet/!\\\n"
         + commandes.chiot + " => \"permet d'affichet le gif d'un chiot. \"/!\\Va être supprimé !! Utilisez \"$gif chiot\" pour le même effet/!\\\n"
-        + commandes.hug + " {mention} => \"permet de faire un câlin à {mention}. \"\n"
         + commandes.gif + " {type de gif}=> \"permet d'afficher un gif du type indiqué.\"\n"
         + commandes.gifTypes + " => \"permet d'afficher la liste des types de gif actuellement disponibles.\"\n"
+        + commandes.hug + " {mention} => \"permet de faire un câlin à {mention}. \"\n"
+        + commandes.hug + " {mentions} => \"permet de faire un câlin à toutes les {mentions}. \"\n"
+        + commandes.kiss + " {mention} => \"permet de faire un bisou à {mention}. \"\n"
+        + commandes.kiss + " {mentions} => \"permet de faire un bisou à toutes les {mentions}. \"\n"
         + "```\n"
       );
       channel.send("```js"
@@ -79,8 +83,8 @@ bot.on('ready', function () {
 bot.on('message', async function(message){
   var commande = message.content.split(" ")[0];
   switch (commande){
-    case commandes.prout:
-      prout.doProut(message);
+    case commandes.aide:
+      sendHelp(message.author);
       break;
     case commandes.chaton:
       var chaton = gifs.doChaton(message);
@@ -90,6 +94,32 @@ bot.on('message', async function(message){
       var chiot = gifs.doChiot(message);
       message.channel.send(chiot[0], chiot[1]);
       break;
+    case commandes.gif:
+      message.channel.send(gifs.getGif(message))
+      break;
+    case commandes.gifTypes:
+      message.channel.send(gifs.getGifTypes())
+      break;
+    case commandes.hug:
+      var hug = gifs.doHug(message);
+      writeHug(hug, message);
+      break;
+    case commandes.kiss:
+      var hug = gifs.doKiss(message);
+      writeHug(hug, message);
+      break;
+    case commandes.lettre:
+      pendu.testeLettre(message);
+      break;
+    case commandes.lien:
+      message.author.createDM().then(function(channel){channel.send("https://discordapp.com/oauth2/authorize?client_id=412637005034553344&scope=bot&permissions=8")});
+      break;
+    case commandes.mot:
+      pendu.testeMot(message);
+      break;
+    case commandes.pendu:
+      pendu.start(message);
+      break;
     case commandes.ping:
       const m = await message.channel.send("Ping en calcul... \nVeuillez patienter.");
       m.edit(`Le ping est de ${m.createdTimestamp - message.createdTimestamp}ms. `);
@@ -97,42 +127,20 @@ bot.on('message', async function(message){
     case commandes.pong:
       message.reply("Tu as cru quoi ? Que j'allais répondre ping ?");
       break;
-    case commandes.hug:
-      var hug = gifs.doHug(message);
-      writeHug(hug, message);
-      break;
-    case commandes.roulette:
-      message.reply(roulette.jeuDeLaRoulette(message));
+    case commandes.prout:
+      prout.doProut(message);
       break;
     case commandes.record:
       roulette.getRecord(message);
       break;
-    case commandes.pendu:
-      pendu.start(message);
-      break;
-    case commandes.lettre:
-      pendu.testeLettre(message);
-      break;
-    case commandes.mot:
-      pendu.testeMot(message);
+    case commandes.roulette:
+      message.reply(roulette.jeuDeLaRoulette(message));
       break;
     case commandes.stopPendu:
       message.channel.send(pendu.endGame(message));
       break;
-    case commandes.gif:
-      message.channel.send(gifs.getGif(message))
-      break;
-    case commandes.gifTypes:
-      message.channel.send(gifs.getGifTypes())
-      break;
     case "$formule":
       message.channel.send("(Z->)90° - (E-N'W)90°t = 1")
-      break;
-    case commandes.aide:
-      sendHelp(message.author);
-      break;
-    case commandes.lien:
-      message.author.createDM().then(function(channel){channel.send("https://discordapp.com/oauth2/authorize?client_id=412637005034553344&scope=bot&permissions=8")});
       break;
     case "$test":
       break;

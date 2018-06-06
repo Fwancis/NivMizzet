@@ -4,11 +4,7 @@ const util = require('./utilitaire.js');
 const tabs = require('./tableaux.js');
 
 var getHugs = function(notifies, auteur){
-  var message = "" + notifies[0]
-  for (var i = 1; i < notifies.length-1; i++) {
-    message += ", " + notifies[i];
-  }
-  message += " et " + notifies[notifies.length-1] + ", " + auteur + " vous fait un gros câlin !! \n";
+  var message = util.getNotifiesString(notifies) + ", " + auteur + " vous fait un gros câlin !! \n";
   return message;
 }
 
@@ -25,6 +21,26 @@ var doHug = function(message){
     return reponse;
   }
   return [reponse, getGifFromfolder("hug")];
+}
+
+var getKisses = function(notifies, auteur){
+  var message = util.getNotifiesString(notifies) + ", " + auteur + " vous fait un gros bisou !! \n";
+  return message;
+}
+
+var doKiss = function(message){
+  var reponse;
+  var args = message.content.split(' ');
+  var notifs = util.getArgsNotifs(args);
+  if (notifs.length == 1){
+    reponse = notifs[0] + ", " + message.author + " te fait un gros câlin !! \n";
+  }else if (notifs.length > 1){
+    reponse = getKisses(notifs, message.author);
+  }else{
+    reponse = "Désolé, mais la commande **$hug** s'emploie **$hug {mention}**.";
+    return reponse;
+  }
+  return [reponse, getGifFromfolder("kiss")];
 }
 
 var doChaton = function(message){

@@ -1,8 +1,5 @@
 const fs = require("fs");
 
-var lol = fs.writeFileSync("monFichier", "contenu du fichier", "UTF-8");
-var content
-content = fs.readFileSync("monFichier", "UTF-8");
 var dicoString = fs.readFileSync("mes_modules/Pendu/dictionnaire.txt", "UTF-8");
 dicoString = dicoString.replace("\r", "");
 var dicoTab = dicoString.split("\n");
